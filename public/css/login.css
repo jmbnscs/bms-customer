@@ -1,0 +1,421 @@
+/* GENERAL CSS */
+/* G E N E R A L */
+body {
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  /* Main Container */
+  .container {
+    max-width: 900px;
+  }
+  
+  a {
+    display: inline-block;
+    text-decoration: none;
+  }
+  
+  input {
+    outline: none !important;
+  }
+  
+  h1 {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    font-weight: 700;
+  }
+  
+  section#formHolder {
+    padding: 50px 0;
+  }
+
+  /* Left Box */
+  
+  .brand {
+    padding: 20px;
+    background-size: cover;
+    background-position: center center;
+    /* color: #fff; */
+    min-height: 540px;
+    position: relative;
+
+    /* Inalis ko kasi may puti sa gilid hahahaha */
+    /* box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3); */
+
+    transition: all 0.6s cubic-bezier(1, -0.375, 0.285, 0.995);
+    z-index: 9999;
+  }
+  .brand.active {
+    width: 100%;
+  }
+  .brand::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(2px) saturate(180%);
+    -webkit-backdrop-filter: blur(2px) saturate(180%);
+    /* background-color: rgba(199, 216, 227, 0.75); */
+    background-color: #FFF;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    /* background: rgba(0, 0, 0, 0.85); */
+    z-index: -1;
+  }
+  .brand img.logo {
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    line-height: 1em;
+  }
+  .brand img.heading {
+    width: 400px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222);
+
+    transform: translate(-50%, -50%);
+    text-align: center;
+    transition: all 0.6s;
+  }
+  .brand .heading.active {
+    top: 100px;
+    left: 100px;
+    transform: translate(0);
+  }
+
+  /* Form (Right Box) */
+  .form {
+    position: relative;
+  }
+  .form .form-piece {
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    background-color: rgba(8, 11, 54, 0.75);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    min-height: 480px;
+    margin-top: 30px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    padding: 30px 0 60px;
+    transition: all 0.9s cubic-bezier(1, -0.375, 0.285, 0.995);
+    position: absolute;
+    top: 0;
+    left: -30%;
+    width: 130%;
+    overflow: hidden;
+  }
+  .form .form-piece.switched {
+    transform: translateX(-100%);
+    width: 100%;
+    left: 0;
+  }
+  .form form {
+    padding: 0 40px;
+    margin: 0;
+    width: 70%;
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+  }
+  .form form .form-group {
+    margin-bottom: 5px;
+    position: relative;
+  }
+  .form form .form-group.hasError input {
+    border-color: #FA9696 !important;
+  }
+  .form form .form-group.hasError label {
+    color: #FA9696 !important;
+  }
+  .form form .label {
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+    transform: translateY(40px);
+    transition: all 0.4s;
+    cursor: text;
+    z-index: -1;
+  }
+  .form form .label.active {
+    transform: translateY(12px);
+    font-size: 12px;
+  }
+  .form form .label.fontSwitch {
+    font-family: "Raleway", sans-serif !important;
+    font-weight: 600;
+  }
+  .form form input:not([type=submit]) {
+    background: none;
+    outline: none;
+    border: none;
+    display: block;
+    padding: 10px 0;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    color: #fff;
+    font-size: 15px;
+    font-family: "Montserrat", sans-serif;
+    z-index: 1;
+  }
+  .form form input:not([type=submit]).hasError {
+    border-color: #FA9696;
+  }
+  .form form input[type=password] 
+  {
+    color: #fff;
+  }
+
+  .form-check
+  {
+    position: absolute;
+    margin-top: 10px;
+    width: 45px;
+  }
+  
+  .form-check-label
+  {
+    position: fixed;
+    padding: 0 6px;
+    text-align: center;
+  }
+
+  .login-message h3
+  {
+    text-align: center;
+  }
+
+  .form form .CTA {
+    /*border: 2px solid red;*/
+    text-align: center;
+    margin-top: 60px;
+  }
+  .form form .CTA input {
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 5px 30px;
+    background: #4397D0;
+    color: #fff;
+    border-radius: 30px;
+    margin-right: 20px;
+    margin-bottom: 15px;
+    border: none;
+    font-family: "Montserrat", sans-serif;
+  }
+  .form form .CTA a.switch {
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
+    color: #fff;
+    text-decoration: overline;
+    transition: all 0.3s;
+  }
+  .form form .CTA a.switch:hover {
+    color: #05E0F3;
+  }
+
+  .hide-error {
+    display: none;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .container {
+      overflow: hidden;
+    }
+  
+    section#formHolder {
+      padding: 0;
+    }
+    section#formHolder div.brand {
+      min-height: 200px !important;
+    }
+    section#formHolder div.brand.active {
+      min-height: 100vh !important;
+    }
+    section#formHolder div.brand .heading.active {
+      top: 200px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    section#formHolder div.brand .success-msg p {
+      font-size: 16px;
+    }
+    section#formHolder div.brand .success-msg a {
+      padding: 5px 30px;
+      font-size: 10px;
+    }
+    section#formHolder .form {
+      width: 80vw;
+      min-height: 500px;
+      margin-left: 10vw;
+    }
+    section#formHolder .form .form-piece {
+      margin: 0;
+      top: 0;
+      left: 0;
+      width: 100% !important;
+      transition: all 0.5s ease-in-out;
+    }
+    section#formHolder .form .form-piece.switched {
+      transform: translateY(-100%);
+      width: 100%;
+      left: 0;
+    }
+    section#formHolder .form .form-piece > form {
+      width: 100% !important;
+      padding: 60px;
+      left: 50%;
+    }
+  }
+  @media (max-width: 480px) {
+    section#formHolder .form {
+      width: 100vw;
+      margin-left: 0;
+    }
+  
+    h2 {
+      font-size: 50px !important;
+    }
+  }
+/* END GENERAL */
+
+/* Animated BG */
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.area{
+    background: #4e54c8;  
+    background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);  
+    width: 100%;
+    height:100vh;
+}
+
+.circles{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.circles li{
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    animation: animate 25s linear infinite;
+    bottom: -150px;
+    
+}
+
+.circles li:nth-child(1){
+    left: 25%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 0s;
+}
+
+
+.circles li:nth-child(2){
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+.circles li:nth-child(3){
+    left: 70%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 4s;
+}
+
+.circles li:nth-child(4){
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+
+.circles li:nth-child(5){
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 0s;
+}
+
+.circles li:nth-child(6){
+    left: 75%;
+    width: 110px;
+    height: 110px;
+    animation-delay: 3s;
+}
+
+.circles li:nth-child(7){
+    left: 35%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 7s;
+}
+
+.circles li:nth-child(8){
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    animation-delay: 15s;
+    animation-duration: 45s;
+}
+
+.circles li:nth-child(9){
+    left: 20%;
+    width: 15px;
+    height: 15px;
+    animation-delay: 2s;
+    animation-duration: 35s;
+}
+
+.circles li:nth-child(10){
+    left: 85%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 0s;
+    animation-duration: 11s;
+}
+
+
+
+@keyframes animate {
+
+    0%{
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+
+    100%{
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+
+}
+/* Animated BG End*/
+
