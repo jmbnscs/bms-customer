@@ -1,4 +1,4 @@
-# GSTech Billing Management System REST API
+# GSTech Billing Management System Customer UI
 
 *A Capstone Project Presented to the
 Faculty of the College of Computer and Information Sciences (CCIS),
