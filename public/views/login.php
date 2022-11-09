@@ -12,83 +12,43 @@
 <link rel="stylesheet" href="../css/login.css">
 </head>
 
-<body class="area">
-<!-- Floating Circles? --> 
-<ul class="circles" id="circles">
-</ul>
-<!-- Floating Circles? End-->
+<!-- Login start -->
+<body>
+	 <img class="wave" src="../images/bg8.jpg">
+	 <div class="container">
+		 <div class="img">
+			 <img src="../images/gstech-logo-vector.png">
+		 </div>
+		 <div class="login-content">
+			 <form>
+				 <img src="../images/profile2.png">
+				 <h2 class="title">Welcome</h2>
+				 <div class="input-div one">
+					 <div class="i">
+						 <i class="fas fa-user"></i>
+					 </div>
+					 <div class="div">
+						 <h5>Username / Account ID</h5>
+						 <input type="text" class="form-control" name="customer_username" id="customer_username" required>
+					 </div>
+				 </div>
+				 <div class="input-div pass">
+					<div class="i">
+						<i class="fas fa-lock"></i>
+					</div>
+					<div class="div">
+						<h5>Password</h5>
+						<input type="password" class="form-control" name="customer_password" id="customer_password" required>
+					</div>
+				</div>
+				<a href="#">Forget Password?</a>
+				<input type="submit" class="btn" id ="submit" value="Login">
+			 </form>
+		 </div>
+	 </div>
 
-<div class="container">
-    <section id="formHolder">
-        <div class="row">
-            <!-- Brand Box -->
-            <div class="col-sm-6 brand">
-                <!-- <img src="../images/gst-logo.ico" alt="GSTech Logo" class="logo"> -->
-                <div>
-                    <img src="../images/gstech-logo-vector.png" class="heading">
-                </div>
-            </div>
+     <!-- End of Login -->
 
-            <!-- Form Box -->
-            <div class="col-sm-6 form">
-
-                <!-- Login Form -->
-                <div class="login form-piece switched">
-                    <form class="login-form">
-                        <div class="label">
-                            <h1>Customer Login</h1>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="label">Username / Account ID</label>
-                            <input type="text" name="customer_username" id="customer_username" required>
-                        </div>
-                            
-                        <div class="form-group">
-                            <label class="label">Password</label>
-                            <input
-                                type="password"
-                                name="customer_password"
-                                id="customer_password"
-                                required>
-                        </div>
-
-                        <div class="col-12">
-                            <div class="form-check">
-                                <label class="form-check-label">Remember me</label>
-                                <input
-                                    class="form-check-input"
-                                    type="checkbox"
-                                    value="1"
-                                    id="invalidCheck2">
-                            </div>
-                        </div>
-
-                        <div class="CTA">
-                            <input type="submit" id="submit" value="Login" />
-                        </div>
-
-                    </form>
-
-                </div>
-                <!-- End Login Form -->
-
-                <!-- Welcome Page -->
-                <div class="welcome form-piece">
-                    <form class="signup-form" action="#" method="post">
-                        <div class="login-message">
-                            <h1>Welcome back!</h1>
-                        </div>
-                        <div class="CTA">
-                            <a href="#" class="switch">Click to Login</a>
-                        </div>
-                    </form>
-                </div>
-                <!-- End Welcome Page -->
-            </div>
-        </div>
-    </section>
-</div>
 
 
 
@@ -113,6 +73,9 @@
 
     <!-- Ajax -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!--add-ons by KL -->
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script> 
 
     <!-- Local JS -->
     <script src="../js/login.js"></script>

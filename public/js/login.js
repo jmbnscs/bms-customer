@@ -1,79 +1,44 @@
-$(document).ready ( () => {
-    // Create floating circles
-    for (var i = 0; i < 8; i++) {
-        const circle = document.createElement('li');
-        document.getElementById('circles').appendChild(circle);
+const inputs = document.querySelectorAll(".form-control");
+
+function AddClass() {
+    let parent = this.parentNode.parentNode;
+    parent.classList.add("focus");
+}
+
+function RemoveClass() {
+    let parent = this.parentNode.parentNode;
+    if (this.value == '') {
+        parent.classList.remove("focus");
     }
+}
 
-    'use strict';
-
-    initializeAttempts();
-
-    // Detect browser for css purpose
-    if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
-        $('.form form .label').addClass('fontSwitch');
-    }
-
-    // Label effect
-    $('input').focus(function () {
-
-        $(this).siblings('.label').addClass('active');
-    });
-
-    // Form validation
-    $('input').blur(function () {
-
- 
-        // label effect
-        if ($(this).val().length > 0) {
-            $(this).siblings('.label').addClass('active');
-        } else {
-            $(this).siblings('.label').removeClass('active');
-        }
-    });
-
-
-    // form switch
-    $('a.switch').click(function (e) {
-        $(this).toggleClass('active');
-        e.preventDefault();
-
-        if ($('a.switch').hasClass('active')) {
-            $(this).parents('.form-piece').addClass('switched').siblings('.form-piece').removeClass('switched');
-        } else {
-            $(this).parents('.form-piece').removeClass('switched').siblings('.form-piece').addClass('switched');
-        }
-    });
-
-
-    // Reload page
-    $('a.profile').on('click', function () {
-        location.reload(true);
-    });
+inputs.forEach(input => {
+    input.addEventListener("focus", AddClass);
+    input.addEventListener("blur", RemoveClass);
 });
 
 // ------------------- BACKEND JS
 const DIR_API = 'http://localhost/gstech_api/api/';
 
-async function login () {
+async function login() {
     const login_username = $('#customer_username').val();
     const customer_password = $('#customer_password').val();
 
     let url = DIR_API + 'customer/login.php';
 
     const loginResponse = await fetch(url, {
-        method : 'POST',
-        headers : {
-            'Content-Type' : 'application/json'
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
         },
-        body : JSON.stringify({
-            'login_username' : login_username,
-            'customer_password' : customer_password
+        body: JSON.stringify({
+            'login_username': login_username,
+            'customer_password': customer_password
         })
     });
 
     const content = await loginResponse.json();
-    
+
     if (content.message == 'success') {
         sessionStorage.setItem('account_id', content.account_id);
         window.location.replace('../views/home.php');
@@ -89,7 +54,7 @@ async function login () {
 }
 
 $(function () {
-    $('form').on('submit', function(e) {
+    $('form').on('submit', function (e) {
         e.preventDefault();
 
         // if (localStorage.getItem('customer_username') == null) {
@@ -100,16 +65,16 @@ $(function () {
         //     localStorage.setItem('customer_username', customer_username);
         // }
         login();
-        
+
     });
 });
 
 function disableLoginButton() {
     $('#submit').prop('disabled', true);
     $('#submit').css('background-color', '#808080');
-    setTimeout(function() {
-            $('#submit').prop('disabled', false);
-            $('#submit').css('background-color', '#4397d0');
+    setTimeout(function () {
+        $('#submit').prop('disabled', false);
+        $('#submit').css('background-color', '#4397d0');
     }, 5000);
 }
 
@@ -139,12 +104,12 @@ function setToastr(title, message, type) {
         "hideEasing": "linear",
         "showMethod": "fadeIn",
         "hideMethod": "fadeOut"
-      };
+    };
 
-      if (type == "error") {
+    if (type == "error") {
         toastr.error(message, title);
-      }
-      else {
+    }
+    else {
         toastr.warning(message, title);
-      }
+    }
 }
