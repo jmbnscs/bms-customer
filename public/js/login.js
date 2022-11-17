@@ -40,13 +40,13 @@ async function login() {
     const content = await loginResponse.json();
 
     if (content.message == 'success') {
-        sessionStorage.setItem('account_id', content.account_id);
+        localStorage.setItem('account_id', content.account_id);
         window.location.replace('../views/home.php');
     }
     else if (content.message == 'change password') {
-        sessionStorage.setItem('pw', 0);
-        sessionStorage.setItem('account_id', content.account_id);
-        window.location.replace('../views/home.php');
+        localStorage.setItem('pw', 0);
+        localStorage.setItem('account_id', content.account_id);
+        window.location.replace('../views/settings.php');
     }
     else {
         setToastr("Warning", content.message, "error");

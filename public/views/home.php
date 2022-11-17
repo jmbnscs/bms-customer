@@ -60,8 +60,7 @@
 
   </section><!-- End About Section -->
 
-
-
+</main>
 
 <!-- Vendor JS Files -->
 <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>

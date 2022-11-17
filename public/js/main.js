@@ -1,9 +1,10 @@
 const DIR_API = 'http://localhost/gstech_api/api/';
-const account_id = sessionStorage.getItem('account_id');
+const account_id = localStorage.getItem('account_id');
+const pw_check = localStorage.getItem('pw');
 
 // On Boot Load
 $(document).ready( () => {
-    if (sessionStorage.getItem('pw') != null) { 
+    if (pw_check != null) { 
         let msg = "Please change your password.";
         let title = "Important!"
         setToastrArgs(msg, title);
@@ -13,8 +14,25 @@ $(document).ready( () => {
     setToastr();
 });
 
+// Check if Default Password
+function isDefault () {
+    if (pw_check == 0) { 
+        window.location.replace('../views/settings.php');
+    }
+}
+
 // Get Data
 async function getUserData() {
+    let url = DIR_API + 'views/customer_data.php?account_id=' + account_id;
+    try {
+        let res = await fetch(url);
+        return await res.json();
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function getAccountData() {
     let url = DIR_API + 'customer/read_single.php?account_id=' + account_id;
     try {
         let res = await fetch(url);
@@ -24,48 +42,22 @@ async function getUserData() {
     }
 }
 
-// Get User Level
-async function getUserRating() {
-    let url = DIR_API + 'ratings/read_single.php?account_id=' + account_id;
-    let ratingsResponse;
-    let content;
-
-    try {
-        ratingsResponse = await fetch (url);
-    } catch (error) {
-        console.log(error);
-    }
-
-    content = await ratingsResponse.json();
-
-    url = DIR_API + 'statuses/read_single.php';
-
-    const statusResponse = await fetch(url, {
-        method : 'POST',
-        headers : {
-            'Content-Type' : 'application/json'
-        },
-        body : JSON.stringify({
-            'status_table' : 'ratings_status',
-            'status_id' : content.ratings_status_id
-        })
-    });
-
-    content = await statusResponse.json();
-
-    return content.status_name;
+function formatDateString(date) {
+    var temp = new Date(date);
+    var month = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"][temp.getMonth()];
+    return month + ' ' + temp.getDate() + ', ' + temp.getFullYear();
 }
 
 // Display Default Data
 async function setDefaults () {
     const user_data = await getUserData();
-    const user_rating = await getUserRating();
 
     const profile = document.getElementById('profile').children;
     const child = profile[0].children;
 
     child[0].innerHTML = user_data.first_name + ' ' + user_data.last_name;
-    child[1].innerHTML = user_rating;
+    child[1].innerHTML = user_data.rating_status;
 
     const display = document.getElementById('displayName').children;
     const display_name = display[0].children;
