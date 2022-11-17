@@ -1,4 +1,3 @@
-// On Boot Load
 $(document).ready( () => {
     setSettingsPage();
 });

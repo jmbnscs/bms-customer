@@ -11,7 +11,7 @@
 
               <!-- Account Settings Tab -->
               <div class="d-flex align-items-start ">
-                <div class="nav flex-column nav-tabs-bordered me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <div class="nav flex-column settings me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                   <li class="nav-item flex-fill" role="presentation">
                     <button class="nav-link active w-100" id="general-tab" data-bs-toggle="tab" data-bs-target="#settings-general" type="button" role="tab" aria-controls="settings-general" aria-selected="true">General</button>
                   </li>

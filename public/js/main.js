@@ -42,6 +42,16 @@ async function getAccountData() {
     }
 }
 
+async function getPaymentRecordData(payment_id) {
+    let url = DIR_API + 'payment/read_single.php?payment_id=' + payment_id;
+    try {
+        let res = await fetch(url);
+        return await res.json();
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 function formatDateString(date) {
     var temp = new Date(date);
     var month = ["January", "February", "March", "April", "May", "June",

@@ -569,7 +569,7 @@ section {
 
 /* Bordered Tabs */
 .nav-tabs-bordered {
-  border-left: 2px solid #ebeef4;
+  border-bottom: 2px solid #ebeef4;
 }
 
 .nav-tabs-bordered .nav-link {
@@ -586,6 +586,33 @@ section {
 }
 
 .nav-tabs-bordered .nav-link.active {
+  background-color: #fff;
+  color: #4154f1;
+  border-bottom: 2px solid #4154f1;
+}
+
+.settings {
+  border-left: 2px solid #4154f1;
+}
+
+.settings {
+  border-left: 2px solid #ebeef4;
+}
+
+.settings .nav-link {
+  margin-bottom: -2px;
+  border: none;
+  color: #2c384e;
+  background-color: rgba(255, 255, 255, 0.6);
+  /* background-color: #ebeef4; */
+}
+
+.settings .nav-link:hover,
+.settings .nav-link:focus {
+  color: #4154f1;
+}
+
+.settings .nav-link.active {
   background-color: #fff;
   color: #4154f1;
   border-left: 2px solid #4154f1;
