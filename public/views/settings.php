@@ -61,7 +61,7 @@
                       <div class="row mb-3">
                         <label for="birthdate" class="col-md-3 col-lg-3 col-form-label">Birthdate</label>
                         <div class="col-md-9 col-lg-9">
-                          <input name="birthdate" type="date" class="form-control" id="birthdate" value="" required>
+                          <input name="birthdate" type="date" class="form-control" id="birthdate" value="" readonly>
                         </div>
                       </div>
 
@@ -69,6 +69,20 @@
                         <label for="billing-address" class="col-md-3 col-lg-3 col-form-label">Billing Address</label>
                         <div class="col-md-9 col-lg-9">
                           <input name="billing-address" type="text" class="form-control" id="billing-address" value="" required>
+                        </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <label for="email" class="col-md-4 col-lg-3 col-form-label">Email</label>
+                        <div class="col-md-8 col-lg-9">
+                          <input name="email" type="email" class="form-control" id="email" value="" required>
+                        </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <label for="mobile-number" class="col-md-4 col-lg-3 col-form-label">Mobile Number</label>
+                        <div class="col-md-8 col-lg-9">
+                          <input name="mobile-number" type="text" class="form-control" id="mobile-number" value="" required>
                         </div>
                       </div>
 
@@ -100,35 +114,36 @@
                       <div class="row mb-3">
                         <label for="customer-username" class="col-md-4 col-lg-3 col-form-label">Username</label>
                         <div class="col-md-8 col-lg-9">
-                          <input name="customer-username" type="text" class="form-control" id="customer-username" value="">
+                          <input name="customer-username" type="text" class="form-control" id="customer-username" value="" required>
                         </div>
                       </div>
 
                       <div class="row mb-3">
                         <label for="current-password" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
                         <div class="col-md-8 col-lg-9">
-                          <input name="current-password" type="password" class="form-control" id="current-password" value="">
+                          <input name="current-password" type="password" class="form-control" id="current-password" value="" required>
                         </div>
                       </div>
 
                       <div class="row mb-3">
                         <label for="new-password" class="col-md-4 col-lg-3 col-form-label">New Password</label>
                         <div class="col-md-8 col-lg-9">
-                          <input name="new-password" type="password" class="form-control" id="new-password" value="">
+                          <input name="new-password" type="password" class="form-control" id="new-password" value="" required>
                         </div>
                       </div>
 
                       <div class="row mb-3">
                         <label for="re-new-password" class="col-md-4 col-lg-3 col-form-label">Repeat New Password</label>
                         <div class="col-md-8 col-lg-9">
-                          <input name="re-new-password" type="password" class="form-control" id="re-new-password" value="">
+                          <input name="re-new-password" type="password" class="form-control" id="re-new-password" value="" required>
                         </div>
                       </div>
 
                       <div class="text-center pt-2">
                         <button type="submit" class="btn btn-primary">Save Changes</button>
                       </div>
-
+                      
+                      <!-- 
                       <div class="row mb-8 pb-5">
                         <label class="col-md-4 col-lg-3 col-form-label" hidden></label>
                       </div>
@@ -138,6 +153,8 @@
                       <div class="row mb-8 pb-2">
                         <label class="col-md-4 col-lg-3 col-form-label" hidden></label>
                       </div>
+                       -->
+                       
                     </form><!-- End Account Edit Form -->
                   </div>
                 </div>
