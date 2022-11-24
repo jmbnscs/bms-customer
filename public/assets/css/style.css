@@ -70,6 +70,19 @@ h6 {
 }
 
 /*--------------------------------------------------------------
+# Main
+--------------------------------------------------------------*/
+#main {
+  transition: all 0.3s;
+}
+
+@media (max-width: 1199px) {
+  #main {
+    padding: 20px;
+  }
+}
+
+/*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
 .back-to-top {
@@ -112,7 +125,7 @@ h6 {
 }
 
 /*--------------------------------------------------------------
-# Navigation Menu
+# Top Navigation Menu
 --------------------------------------------------------------*/
 /**
 * Desktop Navigation 
@@ -343,9 +356,14 @@ h6 {
 /*--------------------------------------------------------------
 # Sections
 --------------------------------------------------------------*/
+
+.Account {
+  background-color: #f9fafe;
+  background-size: cover;
+}
+
 section {
   padding: 60px 0;
-  overflow: hidden;
 }
 
 .section-header {
@@ -531,6 +549,7 @@ section {
 
 /* Card */
 .card {
+  margin-top: 30px;
   margin-bottom: 30px;
   border: none;
   border-radius: 5px;
@@ -547,7 +566,7 @@ section {
 
 .card-title {
   padding: 20px 0 15px 0;
-  font-size: 18px;
+  font-size: 25px;
   font-weight: 500;
   color: #012970;
   font-family: "Poppins", sans-serif;
@@ -555,13 +574,15 @@ section {
 
 .card-title span {
   color: #899bbd;
-  font-size: 14px;
+  font-size: 25px;
   font-weight: 400;
+  padding-right: 20px;
 }
 
 .card-body {
   padding: 0 20px 20px 20px;
 }
+
 
 .card-img-overlay {
   background-color: rgba(255, 255, 255, 0.6);
@@ -588,7 +609,7 @@ section {
 .nav-tabs-bordered .nav-link.active {
   background-color: #fff;
   color: #4154f1;
-  border-bottom: 2px solid #4154f1;
+  border-bottom: 5px solid #4154f1;
 }
 
 .settings {
@@ -617,3 +638,77 @@ section {
   color: #4154f1;
   border-left: 2px solid #4154f1;
 }
+
+
+/*--------------------------------------------------------------
+# View Profile Page
+--------------------------------------------------------------*/
+.view-profile .box {
+  padding: 40px 20px;
+  background: #fff;
+  text-align: center;
+  box-shadow: 0px 0 30px rgba(1, 41, 112, 0.08);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s;
+  height: 600px;
+  margin-bottom: 15px;
+}
+
+.view-profile .box:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
+}
+
+.view-profile h3 {
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.view-profile .profile {
+  font-size: 20px;
+  color: #444444;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+}
+
+.view-profile .box img {
+  margin-top: 15px;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 50px;
+}
+
+.view-profile ul {
+  margin-top: 10px;
+  padding: 0;
+  list-style: none;
+  color: #444444;
+  text-align: left;
+  line-height: 26px;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.view-profile ul li {
+  padding-bottom: 8px;
+}
+
+/*--------------------------------------------------------------
+# Ticket Section
+--------------------------------------------------------------*/
+.container .ticket-form {
+  width: 80%;
+  margin-left: 120px;
+
+}
+
+
+
+
+
+
+
+
