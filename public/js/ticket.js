@@ -1,11 +1,16 @@
 // On Boot Load
 $(document).ready(function () {
-    // isDefault();
+    isDefault();
 
     // if (sessionStorage.getItem('error_message') == "You don't have access to this page.") {
     //     setToastrArgs(sessionStorage.getItem('error_message'), "Error");
     //     sessionStorage.setItem('error_message', null);
     // }
+    if (sessionStorage.getItem("save_message") == "Ticket Created Successfully.") {
+        toastr.success(sessionStorage.getItem("save_message"));
+        sessionStorage.removeItem("save_message");
+    }
+
     setDefaultSetting();
 });
 
@@ -18,6 +23,7 @@ async function setDefaultSetting() {
     // $('#customer-name').text(customer_name);
 
     setTicketHistory();
+    setCreateTicket();
 }
 
 async function setTicketHistory() {
@@ -28,12 +34,9 @@ async function setTicketHistory() {
         var tag;
         let concern = await getConcernCategory(content[i].concern_id);
         let status = await getStatusName('ticket_status', content[i].ticket_status_id);
-        if (status.status_name == "RESOLVED") {
-            tag = 'bg-success';
-        }
-        else {
-            tag = 'bg-danger';
-        }
+        
+        tag = (status.status_name == "RESOLVED") ? 'bg-success' : (status.status_name == "PENDING") ? 'bg-warning' : 'bg-danger';
+        
         t.row.add($(`
             <tr>
                 <th scope="row">${content[i].ticket_num}</th>
@@ -47,7 +50,7 @@ async function setTicketHistory() {
         `)).draw(false);
     }
 
-    setViewModal('view-ticket')
+    setViewModal('view-ticket');
 }
 
 // Set View Modal
@@ -64,7 +67,7 @@ async function setViewModal (table) {
             let status = await getStatusName('ticket_status', data.ticket_status_id);
             let category = await getConcernCategory(data.concern_id);
             let admin = await getAdminData(data.admin_id);
-            (data.ticket_status_id == 3) ? setTagElement('ticket_status', 1) : setTagElement('ticket_status', 2);
+            (data.ticket_status_id == 3) ? setTagElement('ticket_status', 1) : (data.ticket_status_id == 2) ? setTagElement('ticket_status', 2) : setTagElement('ticket_status', 3);
             id = [
                 '#ticket_num', 
                 '#concern_category', 
@@ -80,8 +83,8 @@ async function setViewModal (table) {
                 category.concern_category, 
                 data.concern_details, 
                 formatDateString(data.date_filed),
-                (data.resolution_details == null) ? 'N/A' : data.resolution_details, 
-                (data.date_resolved == null) ? 'N/A' : formatDateString(data.date_resolved), 
+                (data.resolution_details == null || data.resolution_details == "") ? 'N/A' : data.resolution_details, 
+                (data.date_resolved == null || data.date_resolved == "0000-00-00") ? 'N/A' : formatDateString(data.date_resolved), 
                 (data.admin_id == null) ? 'N/A' : admin.first_name + ' ' + admin.last_name, 
                 status.status_name
             ];
@@ -92,9 +95,10 @@ async function setViewModal (table) {
         function setTagElement(id, status) {
             document.getElementById(id).classList.add('text-white');
             document.getElementById(id).classList.remove('bg-danger');
+            document.getElementById(id).classList.remove('bg-warning');
             document.getElementById(id).classList.remove('bg-success');
 
-            (status == 1) ? document.getElementById(id).classList.add('bg-success') : document.getElementById(id).classList.add('bg-danger');
+            (status == 1) ? document.getElementById(id).classList.add('bg-success') : (status == 2) ? document.getElementById(id).classList.add('bg-warning') : document.getElementById(id).classList.add('bg-danger');
         }
 
         function setContent () {
@@ -103,6 +107,131 @@ async function setViewModal (table) {
             }
         }
     });
+}
+
+async function generateTicketNum() {
+    let url = DIR_API + 'ticket/read.php';
+    try {
+        let res = await fetch(url);
+        response = await res.json();
+
+        let unique = false;
+        while(unique == false) {
+            let checker = 0;
+            let rand_num = "TN" + Math.round(Math.random() * 999999);
+            for(let i = 0; i < response.length; i++) {
+                if(rand_num == response[i]['ticket_num']) {
+                    checker++;
+                }
+            }
+            if (checker == 0) {
+                unique = true;
+                return rand_num;
+            }
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+function setCreateTicket () {
+    const create_ticket = document.getElementById('create-ticket');
+
+    // Set Default Values
+    setDefaultFormValues();
+    setAddDropdown();
+
+    // Form Submits -- onclick Triggers
+    create_ticket.onsubmit = (e) => {
+        e.preventDefault();
+        createTicket();
+    };
+}
+
+async function createTicket() {
+    const ticket_num = $('#ticket_num_create').val();
+    const concern_id = $('#concern_id_create').val();
+    const concern_details = $('#concern_details_create').val();
+
+    const date_filed = generateDateString();
+    const user_level = (concern_id == 1 || concern_id == 2) ? 3 : 5;
+    
+    let url = DIR_API + 'ticket/create.php';
+    const createTicketResponse = await fetch(url, {
+        method : 'POST',
+        headers : {
+            'Content-Type' : 'application/json'
+        },
+        body : JSON.stringify({
+            'concern_id' : concern_id,
+            'concern_details' : concern_details,
+            'date_filed' : date_filed,
+            'ticket_status_id' : 1,
+            'account_id' : account_id,
+            'ticket_num' : ticket_num,
+            'user_level' : user_level
+        })
+    });
+
+    const ticket_content = await createTicketResponse.json();
+
+    if (ticket_content.message == 'Ticket Created') {
+        sessionStorage.setItem('save_message', "Ticket Created Successfully.");
+        window.location.reload();
+    }
+    else {
+        toastr.error("Ticket was not created. " + ticket_content.message + ". Please try again.");
+        setTimeout(function(){
+            window.location.reload();
+         }, 2000);
+    }
+}
+
+function generateDateString() {
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); 
+    var yyyy = today.getFullYear();
+    today = yyyy + '-' + mm + '-' + dd;
+    return today;
+}
+
+function setDefaultFormValues() {
+    const getTicketNum = async () => {
+        const result = await generateTicketNum();
+        return result;
+    }
+
+    getTicketNum().then(result => {
+        $("#ticket_num_create").attr("value", result);
+    });
+
+    const getDateToday = async () => {
+        const result = generateDateString();
+        return result;
+    }
+
+    getDateToday().then(result => {
+        $("#date_filed_create").attr("value", result);
+    });
+}
+
+async function setAddDropdown() {
+    const concern = await displayConcerns();
+    for (var i = 0; i < concern.length; i++) {
+        var opt = `<option value='${concern[i].concern_id}'>${concern[i].concern_category}</option>`;
+        $("#concern_id_create").append(opt);
+    }
+}
+
+async function displayConcerns() {
+    let url = DIR_API + 'concerns/read.php';
+    try {
+        let res = await fetch(url);
+        return await res.json();
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 async function getCustomerData() {

@@ -1,4 +1,5 @@
 $(document).ready( () => {
+    isDefault();
     setSettingsPage();
 });
 

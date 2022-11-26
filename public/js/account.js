@@ -1,6 +1,6 @@
 // On Boot Load
 $(document).ready(function () {
-    // isDefault();
+    isDefault();
 
     // if (sessionStorage.getItem('error_message') == "You don't have access to this page.") {
     //     setToastrArgs(sessionStorage.getItem('error_message'), "Error");
@@ -48,6 +48,8 @@ async function setInvoiceHistory() {
             </tr>
         `)).draw(false);
     }
+
+    setViewModal();
 }
 
 async function setPaymentHistory() {
@@ -114,12 +116,9 @@ async function setTicketHistory() {
         var tag;
         let concern = await getConcernCategory(content[i].concern_id);
         let status = await getStatusName('ticket_status', content[i].ticket_status_id);
-        if (status.status_name == "RESOLVED") {
-            tag = 'bg-success';
-        }
-        else {
-            tag = 'bg-danger';
-        }
+        
+        tag = (status.status_name == "RESOLVED") ? 'bg-success' : (status.status_name == "PENDING") ? 'bg-warning' : 'bg-danger';
+
         t.row.add($(`
             <tr>
                 <th scope="row">${content[i].ticket_num}</th>
@@ -147,7 +146,7 @@ async function setViewModal (table) {
         let data, id, content;
         if (table == 'view-payment') {
             data = await getPaymentRecordData(data_id);
-            (data.tagged == 1) ? setTagElement('tagged', 1) : setTagElement('tagged', 2);
+            (data.tagged == 1) ? setTagElement('tagged', 1) : setTagElement('tagged', 3);
             id = [
                 '#payment_reference_id', 
                 '#amount_paid', 
@@ -166,7 +165,7 @@ async function setViewModal (table) {
         else if (table == 'view-prorate') {
             data = await getSingleProrateRecord(data_id);
             let status = await getStatusName('prorate_status', data.prorate_status_id);
-            (data.prorate_status_id == 2) ? setTagElement('prorate_status', 1) : setTagElement('prorate_status', 2);
+            (data.prorate_status_id == 2) ? setTagElement('prorate_status', 1) : setTagElement('prorate_status', 3);
             id = [
                 '#prorate_id', 
                 '#duration', 
@@ -178,7 +177,7 @@ async function setViewModal (table) {
                 data.prorate_id, 
                 data.duration, 
                 '\u20B1 ' + data.prorate_charge, 
-                data.invoice_id, 
+                (data.invoice_id == null) ? 'N/A' : data.invoice_id, 
                 status.status_name
             ];
         }
@@ -187,7 +186,7 @@ async function setViewModal (table) {
             let status = await getStatusName('ticket_status', data.ticket_status_id);
             let category = await getConcernCategory(data.concern_id);
             let admin = await getAdminData(data.admin_id);
-            (data.ticket_status_id == 3) ? setTagElement('ticket_status', 1) : setTagElement('ticket_status', 2);
+            (data.ticket_status_id == 3) ? setTagElement('ticket_status', 1) : (data.ticket_status_id == 2) ? setTagElement('ticket_status', 2) : setTagElement('ticket_status', 3);
             id = [
                 '#ticket_num', 
                 '#concern_category', 
@@ -203,8 +202,8 @@ async function setViewModal (table) {
                 category.concern_category, 
                 data.concern_details, 
                 formatDateString(data.date_filed),
-                (data.resolution_details == null) ? 'N/A' : data.resolution_details, 
-                (data.date_resolved == null) ? 'N/A' : formatDateString(data.date_resolved), 
+                (data.resolution_details == null || data.resolution_details == "") ? 'N/A' : data.resolution_details, 
+                (data.date_resolved == null || data.date_resolved == "0000-00-00") ? 'N/A' : formatDateString(data.date_resolved), 
                 (data.admin_id == null) ? 'N/A' : admin.first_name + ' ' + admin.last_name, 
                 status.status_name
             ];
@@ -215,9 +214,10 @@ async function setViewModal (table) {
         function setTagElement(id, status) {
             document.getElementById(id).classList.add('text-white');
             document.getElementById(id).classList.remove('bg-danger');
+            document.getElementById(id).classList.remove('bg-warning');
             document.getElementById(id).classList.remove('bg-success');
 
-            (status == 1) ? document.getElementById(id).classList.add('bg-success') : document.getElementById(id).classList.add('bg-danger');
+            (status == 1) ? document.getElementById(id).classList.add('bg-success') : (status == 2) ? document.getElementById(id).classList.add('bg-warning') : document.getElementById(id).classList.add('bg-danger');
         }
 
         function setContent () {
@@ -312,4 +312,14 @@ async function getStatusName(status_table, status_id) {
     });
 
     return await statusResponse.json();
+}
+
+async function getSingleProrateRecord(prorate_id) {
+    let url = DIR_API + 'prorate/read_single.php?prorate_id=' + prorate_id;
+    try {
+        let res = await fetch(url);
+        return await res.json();        
+    } catch (error) {
+        console.log(error);
+    }
 }

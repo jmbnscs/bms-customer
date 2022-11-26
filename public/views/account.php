@@ -298,7 +298,7 @@
 
               <div class="row mb-3">
                 <label for="prorate_status" class="col-sm-4 col-form-label">Status</label>
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                   <input type="text" class="form-control text-center " id="prorate_status" value="" readonly>
                 </div>
               </div>

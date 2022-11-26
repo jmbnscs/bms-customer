@@ -59,6 +59,16 @@ function formatDateString(date) {
     return month + ' ' + temp.getDate() + ', ' + temp.getFullYear();
 }
 
+async function getAdminData(admin_id) {
+    let url = DIR_API + 'admin/read_single.php?admin_id=' + admin_id;
+    try {
+        let res = await fetch(url);
+        return await res.json();        
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 // Display Default Data
 async function setDefaults () {
     const user_data = await getUserData();
