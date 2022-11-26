@@ -44,7 +44,7 @@ async function setInvoiceHistory() {
                 <td>&#8369; ${content[i].total_bill}</td>
                 <td>&#8369; ${content[i].running_balance}</td>
                 <td><span class="badge ${tag}">${status.status_name}</span></td>
-                <td><button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editModal" data-bs-whatever="${content[i].invoice_id}"><i class="ri ri-eye-fill"></i></button></td>
+                <td><button type="submit" class="btn btn-outline-primary" value="${content[i].invoice_id}" name="invoice_id_btn"><i class="ri ri-eye-fill"></i></button></td>
             </tr>
         `)).draw(false);
     }

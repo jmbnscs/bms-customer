@@ -48,6 +48,7 @@
         </div>
 
         <!-- Customer Invoice History-->
+        <form action="../../app/includes/view_invoice.php" method="post" target="_blank">
         <div class="tab-content">
           <div class="tab-pane fade show active customer-invoice" id="customer-invoice">
             <div class="row">
@@ -76,8 +77,8 @@
               </div>
             </div>
           </div>
-
-        </div><!--End Customer Invoice History-->
+        </div>
+        </form><!--End Customer Invoice History-->
 
         <!--Customer Payment History-->
         <div class="tab-content">
