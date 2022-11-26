@@ -49,7 +49,7 @@ async function setInvoiceHistory() {
         `)).draw(false);
     }
 
-    setViewModal();
+    // setViewModal();
 }
 
 async function setPaymentHistory() {
