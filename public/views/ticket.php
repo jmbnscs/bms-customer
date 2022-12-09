@@ -3,17 +3,17 @@
 //  include '../models/navbar.html'; ?>
 
 <!-- customer Ticket History section -->
-<main id="main">
+<main id="main" class="customer-page">
 
   <!-- ======= Edit Profile ======= -->
   <section id="edit-profile" class="edit-profile">
-    <div class="container" data-aos="fade-up">
+    <div class="container adjust-top" data-aos="fade-up">
       <div class="row">
         <div class="col-xl-12">
           <!-- Customer Ticket History-->
           <div class="row">
-            <div class="col-sm-12">
-              <div class="card">
+            <div class="account-ticket col-sm-12">
+              <div class="card overflow-auto">
                 <div class="card-body">
                   <div>
                     <h5 class="card-title">Ticket History</h5>
@@ -126,61 +126,36 @@
 
     </div>
   </section> <!-- End of customer Account profile section-->
-</main>
 
-<section id="hero" class="hero align-items-center">
   <div class="container">
-    <div class="ticket-form">
+    <div class="row">
       <div class="card">
         <div class="card-body pt-4">
           <header class="section-header">
             <p class="text-center">Create a Ticket</p>
           </header>
 
-          <form class="ticket-form row g-3">
-            <div class="col-md-6">
-              <label for="validationTicket" class="form-label">Ticket Number</label>
-              <input type="text" class="form-control" id="validationTicket" readonly>
-            </div>
-
-            <div class="col-md-6">
-              <label for="account_id" class="form-label">Account ID</label>
-                <input type="text" class="form-control">
-            </div>
-
-            <div class="col-md-6">
-              <label for="validationDefault01" class="form-label">First name</label>
-              <input type="text" class="form-control" id="validationDefault01" required>
-            </div>
-
-            <div class="col-md-6">
-              <label for="validationDefault02" class="form-label">Last name</label>
-              <input type="text" class="form-control" id="validationDefault02" required>
+          <form class="ticket-form row g-3" id="create-ticket">
+            <div class="row-4">
+              <label for="ticket_num_create" class="form-label">Ticket Number</label>
+              <input type="text" class="form-control" id="ticket_num_create" readonly>
             </div>
 
             <div class="row-4">
-              <label for="validationDefaultEmail" class="form-label">Email</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="validationDefaultEmail"  aria-describedby="inputGroupPrepend2" required>
-              </div>
-            </div>
-
-            <div class="row-4">
-              <label for="date_filed" class="form-label">Date Filed</label>
-                <input type="date" class="form-control" >
+              <label for="date_filed_create" class="form-label">Date Filed</label>
+                <input type="date" class="form-control" id="date_filed_create" readonly>
             </div>
 
             <div class="row-g-3">
-              <label for="validationDefault04" class="form-label">Concern Category</label>
-                <select class="form-select" id="validationDefault04" required>
+              <label for="concern_id_create" class="form-label">Concern Category</label>
+                <select class="form-select" id="concern_id_create" required>
                   <option selected disabled value="">Select Concern Category</option>
-                  <option>...</option>
                 </select>
             </div>
 
             <div class="row-md-4">
-              <label for="validationDefault05" class="form-label">Concern Details</label>
-              <textarea class="form-control" id="validationTextarea" rows="4" placeholder="Enter your details here..." required></textarea>
+              <label for="concern_details_create" class="form-label">Concern Details</label>
+              <textarea class="form-control" id="concern_details_create" rows="4" placeholder="Please tell us your issue..." required></textarea>
             </div>
 
             <div class="text-center">
@@ -195,7 +170,10 @@
        
   </div>
 
-</section><!-- End Hero -->
+
+</main>
+
+
 
 
 <!-- Vendor JS Files -->
