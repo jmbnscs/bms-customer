@@ -5,11 +5,11 @@
 <section id="hero" class="hero d-flex align-items-center">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 d-flex flex-column justify-content-center">
-                <h1 data-aos="fade-up" id="welcome-text"></h1>
-                <h2 data-aos="fade-up" data-aos-delay="400">This is your profile page. You can see the Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+            <div class="text-center">
+                <h1 class="profile-welcome-text" data-aos="fade-up" id="welcome-text"></h1>
+                <div class="profile-text" data-aos="fade-up" data-aos-delay="400">This is your profile page. You can check your GSTech account information.</div>
                 <div data-aos="fade-up" data-aos-delay="600">
-                <div class="text-center text-lg-start">
+                <div class="text-center">
                     <a href="#view-profile" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
                     <span>View profile</span>
                     <i class="bi bi-arrow-right"></i>

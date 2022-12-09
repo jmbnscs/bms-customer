@@ -20,7 +20,6 @@ async function setDefaultSetting() {
     setInvoiceHistory();
     setPaymentHistory();
     setProrateHistory();
-    setTicketHistory();
 }
 
 async function setInvoiceHistory() {
@@ -108,32 +107,7 @@ async function setProrateHistory() {
     setViewModal('view-prorate')
 }
 
-async function setTicketHistory() {
-    let content = await getTicketHistory(account_id);
-    var t = $('#customer-ticket-tbl').DataTable();
 
-    for (var i = 0; i < content.length; i++) {
-        var tag;
-        let concern = await getConcernCategory(content[i].concern_id);
-        let status = await getStatusName('ticket_status', content[i].ticket_status_id);
-        
-        tag = (status.status_name == "RESOLVED") ? 'bg-success' : (status.status_name == "PENDING") ? 'bg-warning' : 'bg-danger';
-
-        t.row.add($(`
-            <tr>
-                <th scope="row">${content[i].ticket_num}</th>
-                <td>${concern.concern_category}</td>
-                <td>${formatDateString(content[i].date_filed)}</td>
-                <td>${(content.date_resolved == null) ? 'N/A' : formatDateString(content.date_resolved)}</td>
-                <td>${content[i].ticket_num}</td>
-                <td><span class="badge ${tag}">${status.status_name}</span></td>
-                <td><button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#view-ticket" data-bs-whatever="${content[i].ticket_num}"><i class="ri ri-eye-fill"></i></button></td>
-                </tr>
-        `)).draw(false);
-    }
-
-    setViewModal('view-ticket')
-}
 
 // Set View Modal
 async function setViewModal (table) {
@@ -181,33 +155,7 @@ async function setViewModal (table) {
                 status.status_name
             ];
         }
-        else if (table == 'view-ticket') {
-            data = await getTicketData(data_id);
-            let status = await getStatusName('ticket_status', data.ticket_status_id);
-            let category = await getConcernCategory(data.concern_id);
-            let admin = await getAdminData(data.admin_id);
-            (data.ticket_status_id == 3) ? setTagElement('ticket_status', 1) : (data.ticket_status_id == 2) ? setTagElement('ticket_status', 2) : setTagElement('ticket_status', 3);
-            id = [
-                '#ticket_num', 
-                '#concern_category', 
-                '#concern_details', 
-                '#date_filed', 
-                '#resolution_details',
-                '#date_resolved',
-                '#admin_id',
-                '#ticket_status'
-            ];
-            content = [
-                data.ticket_num, 
-                category.concern_category, 
-                data.concern_details, 
-                formatDateString(data.date_filed),
-                (data.resolution_details == null || data.resolution_details == "") ? 'N/A' : data.resolution_details, 
-                (data.date_resolved == null || data.date_resolved == "0000-00-00") ? 'N/A' : formatDateString(data.date_resolved), 
-                (data.admin_id == null) ? 'N/A' : admin.first_name + ' ' + admin.last_name, 
-                status.status_name
-            ];
-        }
+
 
         setContent();
 
@@ -260,36 +208,6 @@ async function getPaymentHistory() {
 
 async function getProrateHistory() {
     let url = DIR_API + 'prorate/read_acct.php?account_id=' + account_id;
-    try {
-        let res = await fetch(url);
-        return await res.json();        
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-async function getTicketHistory() {
-    let url = DIR_API + 'ticket/read_single_account.php?account_id=' + account_id;
-    try {
-        let res = await fetch(url);
-        return await res.json();        
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-async function getTicketData(ticket_num) {
-    let url = DIR_API + 'ticket/read_single.php?ticket_num=' + ticket_num;
-    try {
-        let res = await fetch(url);
-        return await res.json();        
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-async function getConcernCategory(concern_id) {
-    let url = DIR_API + 'concerns/read_single.php?concern_id=' + concern_id;
     try {
         let res = await fetch(url);
         return await res.json();        
