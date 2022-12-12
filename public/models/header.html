@@ -86,17 +86,17 @@
         <nav id="navbar" class="navbar">
           <ul>
             <li>
-              <a class="nav-link scrollto active" href="../views/home.php"
+              <a class="nav-link scrollto" href="../views/home.php" id="nav-home"
                 >Home</a
               >
             </li>
             <li>
-              <a class="nav-link scrollto" href="../views/ticket.php"
+              <a class="nav-link scrollto" href="../views/ticket.php" id="nav-ticket"
                 >Tickets</a
               >
             </li>
             <li>
-              <a class="nav-link scrollto" href="../views/account.php"
+              <a class="nav-link scrollto" href="../views/account.php" id="nav-account"
                 >Account</a
               >
             </li>
@@ -105,19 +105,20 @@
               <a
                 class="nav-link nav-profile d-flex align-items-center pe-0"
                 href="#"
-                data-bs-toggle="dropdown"
+                data-bs-toggle="dropdown" id="nav-profile"
               >
-                <img
+                <!-- <img
                   src="../images/avatar.png"
                   alt="Profile"
                   class="rounded-circle"
-                />
-                <span class="d-none d-md-block dropdown-toggle ps-2"></span> </a
+                /> -->
+                <div class="d-md-block mx-auto user-icon" id="user-icon"></div>
+                <span class="d-md-block mx-auto dropdown-toggle ps-2" id="user-fn"></span> </a
               ><!-- End Profile Iamge Icon -->
               <ul class="dropdown-menu profile" id="profile">
                 <li class="dropdown-header">
-                  <h6></h6>
-                  <span id="user_level"></span>
+                  <h6 id="user-name"></h6>
+                  <span id="user-rating"></span>
                 </li>
                 <li>
                   <hr class="dropdown-divider" />

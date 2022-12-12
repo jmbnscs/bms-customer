@@ -20,29 +20,28 @@
 			 <img src="../images/gstech-logo-vector.png">
 		 </div>
 		 <div class="login-content">
-			 <form>
+			 <form id="forgot-password">
 				 <img src="../images/profile2.png">
-				 <h2 class="title">Welcome</h2>
+				 <h2 class="title">Forgot Password</h2>
 				 <div class="input-div one">
 					 <div class="i">
 						 <i class="fas fa-user"></i>
 					 </div>
 					 <div class="div">
-						 <h5>Username / Account ID</h5>
-						 <input type="text" class="form-control" name="customer_username" id="customer_username" required>
+						 <h5>Account ID</h5>
+						 <input type="text" class="form-control" name="account_id" id="account_id" required>
 					 </div>
 				 </div>
-				 <div class="input-div pass">
-					<div class="i">
-						<i class="fas fa-lock"></i>
-					</div>
-					<div class="div">
-						<h5>Password</h5>
-						<input type="password" class="form-control" name="customer_password" id="customer_password" required>
-					</div>
-				</div>
-				<a href="forgot.php" target="_blank">Forgot Password?</a>
-				<input type="submit" class="btn" id ="submit" value="Login">
+				 <div class="input-div one">
+					 <div class="i">
+						 <i class="fas fa-envelope"></i>
+					 </div>
+					 <div class="div">
+						 <h5>Email</h5>
+						 <input type="email" class="form-control" name="email" id="email" required>
+					 </div>
+				 </div>
+				<input type="submit" class="btn" id ="submit" value="Send verification code">
 			 </form>
 		 </div>
 	 </div>
@@ -78,6 +77,6 @@
     <script src="https://kit.fontawesome.com/a81368914c.js"></script> 
 
     <!-- Local JS -->
-    <script src="../js/login.js"></script>
+    <script src="../js/forgot.js"></script>
 </body>
 </html>

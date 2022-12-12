@@ -22,6 +22,34 @@ function isDefault () {
 }
 
 // Get Data
+async function fetchData(page) {
+    let url = DIR_API + page;
+    try {
+        let res = await fetch(url);
+        return await res.json();
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function getStatusName(status_table, status_id) {
+    let url = DIR_API + 'statuses/read_single.php';
+    const statusResponse = await fetch(url, {
+        method : 'POST',
+        headers : {
+            'Content-Type' : 'application/json'
+        },
+        body : JSON.stringify({
+            'status_table' : status_table,
+            'status_id' : status_id
+        })
+    });
+
+    let content = await statusResponse.json();
+
+    return content.status_name;
+}
+
 async function getUserData() {
     let url = DIR_API + 'views/customer_data.php?account_id=' + account_id;
     try {
@@ -59,6 +87,25 @@ function formatDateString(date) {
     return month + ' ' + temp.getDate() + ', ' + temp.getFullYear();
 }
 
+
+function generateDateString() {
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); 
+    var yyyy = today.getFullYear();
+    today = yyyy + '-' + mm + '-' + dd;
+    return today;
+}
+
+function setTagElement(id, status) {
+    document.getElementById(id).classList.add('text-white');
+    document.getElementById(id).classList.remove('bg-danger');
+    document.getElementById(id).classList.remove('bg-warning');
+    document.getElementById(id).classList.remove('bg-success');
+
+    (status == 1) ? document.getElementById(id).classList.add('bg-success') : (status == 2) ? document.getElementById(id).classList.add('bg-warning') : document.getElementById(id).classList.add('bg-danger');
+}
+
 async function getAdminData(admin_id) {
     let url = DIR_API + 'admin/read_single.php?admin_id=' + admin_id;
     try {
@@ -73,16 +120,23 @@ async function getAdminData(admin_id) {
 async function setDefaults () {
     const user_data = await getUserData();
 
-    const profile = document.getElementById('profile').children;
-    const child = profile[0].children;
-
-    child[0].innerHTML = user_data.first_name + ' ' + user_data.last_name;
-    child[1].innerHTML = user_data.rating_status;
-
-    const display = document.getElementById('displayName').children;
-    const display_name = display[0].children;
-    display_name[1].innerHTML = user_data.first_name;
+    $("#user-name").text(user_data.first_name + ' ' + user_data.last_name);
+    $('#user-rating').text(user_data.rating_status);
+    $('#user-fn').text(user_data.first_name);
+    $('#user-icon').text((user_data.first_name).charAt(0) + (user_data.last_name).charAt(0));
 }
+
+// Navbar Active Config
+$(() => {
+    const path = location.pathname.split('/')[4];
+    const id = 'nav-' + path.split('.')[0];
+
+    $('#' + id).addClass('active');
+
+    if (id == 'nav-profile' || id == 'nav-settings')  {
+        $('#nav-profile').addClass('active');
+    }
+})
 
 // Logout Session
 function logout() {

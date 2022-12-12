@@ -151,6 +151,19 @@ h6 {
   font-weight: 600;
 }
 
+.user-icon {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px; 
+  background: #E4F6FA;
+  border: 2px #012970 groove;
+
+  line-height: 40px;
+  font-size: 20px;
+  color: #012970;
+  text-align: center;
+}
+
 .profile {
   min-width: 240px;
   padding-bottom: 0;
@@ -684,6 +697,17 @@ section {
 .view-profile .box:hover {
   transform: scale(1.1);
   box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
+}
+
+.view-profile .box li {
+  color: #012970;
+  font-weight: 700;
+}
+
+.view-profile .box li span {
+  color: #000;
+  font-weight: 500;
+  /* font-weight: lighter; */
 }
 
 .view-profile h3 {

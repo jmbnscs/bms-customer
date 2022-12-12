@@ -82,7 +82,7 @@
                       <div class="row mb-3">
                         <label for="mobile-number" class="col-md-4 col-lg-3 col-form-label">Mobile Number</label>
                         <div class="col-md-8 col-lg-9">
-                          <input name="mobile-number" type="text" class="form-control" id="mobile-number" value="" required>
+                          <input name="mobile-number" type="text" class="form-control" id="mobile-number" pattern="[0]{1}[9]{1}[0-9]{9}" maxlength="11" size="11" value="" required>
                         </div>
                       </div>
 
