@@ -17,7 +17,7 @@
             <ul class="nav nav-tabs nav-tabs-bordered d-flex">
               <li class="nav-item flex-fill">
                 <button class="nav-link active w-100" data-bs-toggle="tab" data-bs-target="#customer-invoice" id="customer-invoice-tab">
-                  <h4>Invoice</h4>
+                  <h4>Billing Statements</h4>
                 </button>
               </li>
               
@@ -50,11 +50,11 @@
                 <div class="card overflow-auto">
                   <div class="card-body">
                     <div>
-                      <h5 class="card-title">Invoice History</h5>
+                      <h5 class="card-title">Billing History</h5>
                       <table class="table table-borderless" id="customer-invoice-tbl">
                         <thead>
                           <tr>
-                            <th scope="col">Invoice ID</th>
+                            <th scope="col">Billing ID</th>
                             <th scope="col">Disconnection Date</th>
                             <th scope="col">Total Bill</th>
                             <th scope="col">Running Balance</th>
