@@ -119,7 +119,7 @@
                           <tr>
                             <th scope="col">Prorate ID</th>
                             <th scope="col">Duration</th>
-                            <th scope="col">Prorate Charge</th>
+                            <th scope="col">Prorate Discount</th>
                             <th scope="col">Ticket #</th>
                             <th scope="col">Status</th>
                             <th scope="col">View</th>
@@ -247,7 +247,7 @@
               </div>
 
               <div class="row mb-3">
-                <label for="prorate_charge" class="col-sm-4 col-form-label">Prorate Charge</label>
+                <label for="prorate_charge" class="col-sm-4 col-form-label">Prorate Discount</label>
                 <div class="col-sm-8">
                   <input type="text" class="form-control" id="prorate_charge" value="" readonly>
                 </div>

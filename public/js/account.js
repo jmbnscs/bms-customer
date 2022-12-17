@@ -83,7 +83,7 @@ async function setProrateHistory() {
     for (var i = 0; i < content.length; i++) {
         var tag;
         let status = await getStatusName('prorate_status', content[i].prorate_status_id);
-        if (status == "CHARGED") {
+        if (status == "Tagged") {
             tag = 'bg-success';
         }
         else {
