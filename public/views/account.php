@@ -17,7 +17,7 @@
             <ul class="nav nav-tabs nav-tabs-bordered d-flex">
               <li class="nav-item flex-fill">
                 <button class="nav-link active w-100" data-bs-toggle="tab" data-bs-target="#customer-invoice" id="customer-invoice-tab">
-                  <h4>Billing</h4>
+                  <h4>Billing Statements</h4>
                 </button>
               </li>
               
