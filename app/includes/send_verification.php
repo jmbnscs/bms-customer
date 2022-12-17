@@ -25,7 +25,7 @@
         $url = DIR_API . "customer/forgot_password.php";
         
         curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode( 
             array (
                 'account_id' => $account_id,
