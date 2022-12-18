@@ -43,7 +43,7 @@ require_once('../helpers/tcpdf/tcpdf.php');
             $this->Cell(180, 5, 'BLK 1 LOT 2A MARS ST. SIKAT ARAW', 0, 1, 'R');
             $this->Cell(180, 5, 'NAGPAYONG PINAGBUHATAN, PASIG CITY', 0, 1, 'R');
             $this->Ln(1);
-            $this->Cell(180, 5, 'Invoice #: ' . $data['invoice_id'], 0, 1, 'R');
+            $this->Cell(180, 5, 'Invoice #: ' . $invoice_id, 0, 1, 'R');
     
             $this->setCellPaddings(1, 1, 1, 1);
             $this->setCellMargins(1, 1, 1, 1);
