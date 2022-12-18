@@ -17,8 +17,8 @@ inputs.forEach(input => {
     input.addEventListener("blur", RemoveClass);
 });
 
-const DIR_API = 'http://api.gstechbms.online/api/';
-const DIR_APP_LOAD = 'http://cui.gstechbms.online/app/includes/';
+const DIR_API = 'https://api.gstechbms.online/api/';
+const DIR_APP_LOAD = 'https://cui.gstechbms.online/app/includes/';
 
 $(function () {
     $('form').on('submit', function (e) {
