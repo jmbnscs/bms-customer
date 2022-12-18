@@ -1,4 +1,4 @@
-const DIR_API = '/gstech_api/api/';
+const DIR_API = 'https://bms.gstechbms.online/gstech_api/api/';
 const account_id = localStorage.getItem('account_id');
 const pw_check = localStorage.getItem('pw');
 

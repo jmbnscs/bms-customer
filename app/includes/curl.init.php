@@ -1,6 +1,6 @@
 <?php
 // Declare Main DIR
-if (!defined("DIR_API")) define("DIR_API", "https://api.gstechbms.online/api/");
+if (!defined("DIR_API")) define("DIR_API", "https://bms.gstechbms.online/gstech_api/api/");
 
 // Inititiate curl
 $ch = curl_init();
