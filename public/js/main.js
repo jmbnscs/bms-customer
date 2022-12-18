@@ -36,6 +36,7 @@ async function getStatusName(status_table, status_id) {
     let url = DIR_API + 'statuses/read_single.php';
     const statusResponse = await fetch(url, {
         method : 'POST',
+        withcredentials : false,
         headers : {
             'Content-Type' : 'application/json'
         },
