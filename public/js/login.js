@@ -18,7 +18,7 @@ inputs.forEach(input => {
 });
 
 // ------------------- BACKEND JS
-const DIR_API = '/gstech_api/api/';
+const DIR_API = 'http://api.gstechbms.online/api/';
 
 async function login() {
     const login_username = $('#customer_username').val();
