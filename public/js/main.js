@@ -129,7 +129,7 @@ async function setDefaults () {
 
 // Navbar Active Config
 $(() => {
-    const path = location.pathname.split('/')[3];
+    const path = location.pathname.split('/')[4];
     const id = 'nav-' + path.split('.')[0];
 
     $('#' + id).addClass('active');
