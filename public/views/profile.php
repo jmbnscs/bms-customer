@@ -5,11 +5,11 @@
 <section id="hero" class="hero d-flex align-items-center">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 d-flex flex-column justify-content-center">
-                <h1 data-aos="fade-up" id="welcome-text"></h1>
-                <h2 data-aos="fade-up" data-aos-delay="400">This is your profile page. You can see the Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+            <div class="text-center">
+                <h1 class="profile-welcome-text" data-aos="fade-up" id="welcome-text"></h1>
+                <div class="profile-text" data-aos="fade-up" data-aos-delay="400">This is your profile page. You can check your GSTech account information.</div>
                 <div data-aos="fade-up" data-aos-delay="600">
-                <div class="text-center text-lg-start">
+                <div class="text-center">
                     <a href="#view-profile" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
                     <span>View profile</span>
                     <i class="bi bi-arrow-right"></i>
@@ -39,7 +39,7 @@
             >
               <div class="box">
                 <h3 style="color: #07d5c0">Basic Information</h3>
-                <div class="profile">GSTech ID : <span id="gstech_id"></span></div>
+                <div class="profile">GSTech ID: <span id="gstech_id"></span></div>
                 <img
                   src="../assets/img/pricing-free.png"
                   class="img-fluid"
@@ -47,13 +47,13 @@
                 />
                
                 <ul>
-                  <li>First Name : <span id="first_name"></span></li>
-                  <li>Middle Name : <span id="middle_name"></span></li>
-                  <li>Last Name : <span id="last_name"></span></li>
-                  <li>Email : <span id="email"></span></li>
-                  <li>Mobile Number : <span id="mobile_number"></span></li>
-                  <li>Birthday : <span id="birthdate"></span></li>
-                  <li>Billing Address : <span id="billing_address"></span></li>
+                  <li>First Name: <span id="first_name"></span></li>
+                  <li>Middle Name: <span id="middle_name"></span></li>
+                  <li>Last Name: <span id="last_name"></span></li>
+                  <li>Email: <span id="email"></span></li>
+                  <li>Mobile Number: <span id="mobile_number"></span></li>
+                  <li>Birthday: <span id="birthdate"></span></li>
+                  <li>Billing Address: <span id="billing_address"></span></li>
                 </ul>
               
               </div>
@@ -67,7 +67,7 @@
             >
               <div class="box">
                 <h3 style="color: #65c600">Account Information</h3>
-                <div class="profile">Account ID : <span id="account_id"></span></div>
+                <div class="profile">Account ID: <span id="account_id"></span></div>
                 <img
                   src="../assets/img/account.png"
                   class="img-fluid"
@@ -75,13 +75,13 @@
                 />
               
                 <ul>
-                  <li>Start Date : <span id="start_date"></span></li>
-                  <li>Lockin End Date : <span id="lockin_end_date"></span></li>
-                  <li>Billing Day : <span id="billing_day"></span></li>
-                  <li>Subscription Plan : <span id="plan_name"></span></li>
-                  <li>Connection Type : <span id="connection_type"></span></li>
-                  <li>Area : <span id="area_name"></span></li>
-                  <li>Bill Count : <span id="bill_count"></span></li>
+                  <li>Start Date: <span id="start_date"></span></li>
+                  <li>Lockin End Date: <span id="lockin_end_date"></span></li>
+                  <li>Billing Day: <span id="billing_day"></span></li>
+                  <li>Subscription Plan: <span id="plan_name"></span></li>
+                  <li>Connection Type: <span id="connection_type"></span></li>
+                  <li>Area: <span id="area_name"></span></li>
+                  <li>Bill Count: <span id="bill_count"></span></li>
                 </ul>
                 
               </div>
@@ -95,7 +95,7 @@
             >
               <div class="box">
                 <h3 style="color: #ff901c">Installation Information</h3>
-                <div class="profile">Status :  <span id="install_status"></span></div>
+                <div class="profile">Status:  <span id="install_status"></span></div>
                 <img
                   src="../assets/img/setting.png"
                   class="img-fluid"
@@ -103,10 +103,10 @@
                 />
                 
                 <ul>
-                  <li>Installation Type : <span id="installation_type"></span></li>
-                  <li>Installment : <span id="installment"></span></li>
-                  <li>Total Charge : <span id="installation_total_charge"></span></li>
-                  <li>Balance : <span id="installation_balance"></span></li>
+                  <li>Installation Type: <span id="installation_type"></span></li>
+                  <li>Installment: <span id="installment"></span></li>
+                  <li>Total Charge: <span id="installation_total_charge"></span></li>
+                  <li>Balance: <span id="installation_balance"></span></li>
                 </ul>
                 
               </div>
@@ -120,16 +120,16 @@
             >
               <div class="box">
                 <h3 style="color: #ff0071">Ratings Information</h3>
-                <div class="profile">Payment Rating :  <span id="avg_rating"></span></div>
+                <div class="profile">Payment Rating:  <span id="avg_rating"></span></div>
                 <img
                   src="../assets/img/rating.jpg"
                   class="img-fluid"
                   alt=""
                 />
                 <ul>
-                  <li>Bill Count : <span id="rating_base"></span></li>
-                  <li>Overdue Payments : <span id="delinquent_ratings"></span></li>
-                  <li>Status : <span id="rating_status"></span></li>
+                  <li>Bill Count: <span id="rating_base"></span></li>
+                  <li>Overdue Payments: <span id="delinquent_ratings"></span></li>
+                  <li>Status: <span id="rating_status"></span></li>
             
                 </ul>
                 

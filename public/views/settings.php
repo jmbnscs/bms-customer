@@ -2,8 +2,8 @@
   include '../models/header.html';
 //  include '../models/navbar.html'; ?>
 
-<section id="hero" class="hero d-flex align-items-center">
-  <div class="container">
+<section class="customer-page">
+  <div class="container adjust-top">
         <div class="row ">
           <!-- Account Settings -->
           <div class="card">
@@ -28,7 +28,7 @@
                   <!-- General Settings Tab Content -->
                   <div class="tab-pane fade show active" id="settings-general" role="tabpanel" aria-labelledby="general-tab">
                     <!-- General Edit Form -->
-                    <form id="edit-general">
+                    <form class="form-setting" id="edit-general">
 
                       <div class="row mb-3">
                         <label for="gstech-id" class="col-md-3 col-lg-3 col-form-label">GSTech ID</label>
@@ -82,7 +82,7 @@
                       <div class="row mb-3">
                         <label for="mobile-number" class="col-md-4 col-lg-3 col-form-label">Mobile Number</label>
                         <div class="col-md-8 col-lg-9">
-                          <input name="mobile-number" type="text" class="form-control" id="mobile-number" value="" required>
+                          <input name="mobile-number" type="text" class="form-control" id="mobile-number" pattern="[0]{1}[9]{1}[0-9]{9}" maxlength="11" size="11" value="" required>
                         </div>
                       </div>
 
@@ -102,7 +102,7 @@
                   <!-- Account Settings Tab Content -->
                   <div class="tab-pane fade pt-6" id="settings-account" role="tabpanel" aria-labelledby="account-tab">
                     <!-- Account Edit Form -->
-                    <form id="edit-account">
+                    <form class="form-setting" id="edit-account">
 
                       <div class="row mb-3">
                         <label for="account-id" class="col-md-4 col-lg-3 col-form-label">Account ID</label>

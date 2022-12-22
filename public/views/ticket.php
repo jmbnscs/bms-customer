@@ -3,17 +3,17 @@
 //  include '../models/navbar.html'; ?>
 
 <!-- customer Ticket History section -->
-<main id="main">
+<main id="main" class="customer-page">
 
   <!-- ======= Edit Profile ======= -->
   <section id="edit-profile" class="edit-profile">
-    <div class="container" data-aos="fade-up">
+    <div class="container adjust-top" data-aos="fade-up">
       <div class="row">
         <div class="col-xl-12">
           <!-- Customer Ticket History-->
           <div class="row">
-            <div class="col-sm-12">
-              <div class="card">
+            <div class="account-ticket col-sm-12">
+              <div class="card overflow-auto">
                 <div class="card-body">
                   <div>
                     <h5 class="card-title">Ticket History</h5>
@@ -126,11 +126,9 @@
 
     </div>
   </section> <!-- End of customer Account profile section-->
-</main>
 
-<section id="hero" class="hero align-items-center">
   <div class="container">
-    <div class="ticket-form">
+    <div class="row">
       <div class="card">
         <div class="card-body pt-4">
           <header class="section-header">
@@ -172,7 +170,10 @@
        
   </div>
 
-</section><!-- End Hero -->
+
+</main>
+
+
 
 
 <!-- Vendor JS Files -->
