@@ -1,22 +1,16 @@
 $(document).ready( () => {
     isDefault();
-    setSettingsPage();
+    setProfileInformation();
 });
 
-async function setSettingsPage() {
-    let content = await getUserData();
+async function setProfileInformation() {
+    let customer_data = await getUserData();
 
-    $('#welcome-text').text('Hi, ' + content.first_name + '!');
-    $('#full-name').text(content.first_name + ' ' + content.last_name);
+    $('#welcome-text').text('Hi, ' + customer_data.first_name + '!');
+    $('#full-name').text(customer_data.first_name + ' ' + customer_data.last_name);
 
-    setCustomerData(content);
-}
-
-async function setCustomerData(customer_data) {
     // Customer Information
-    $('#first_name').text(customer_data.first_name);
-    $('#middle_name').text(customer_data.middle_name);
-    $('#last_name').text(customer_data.last_name);
+    $('#full_name').text(`${customer_data.first_name} ${customer_data.middle_name} ${customer_data.last_name}`);
     $('#email').text(customer_data.email);
     $('#mobile_number').text(customer_data.mobile_number);
     $('#birthdate').text(formatDateString(customer_data.birthdate));
