@@ -1,46 +1,55 @@
-// On Boot Load
 $(document).ready(function () {
     isDefault();
-
-    if (sessionStorage.getItem("save_message") == "Ticket Created Successfully.") {
-        toastr.success(sessionStorage.getItem("save_message"));
-        sessionStorage.removeItem("save_message");
-    }
-
-    setDefaultSetting();
+    displaySuccessMessage();
+    setTicketPage();
 });
 
-// Global Variables
-let customer_name;
-
-async function setDefaultSetting() {
-    const customer_data = await fetchData('views/customer_data.php?account_id=' + account_id);
-    customer_name = customer_data.first_name + " " + customer_data.last_name;
-
-    setTicketHistory();
-    setCreateTicket();
-}
-
-async function setTicketHistory() {
+async function setTicketPage() {
     let content = await fetchData('ticket/read_single_account.php?account_id=' + account_id);
-    var t = $('#customer-ticket-tbl').DataTable();
+    var t = $('#customer-ticket-tbl').DataTable({
+        pageLength: 5,
+        lengthChange: false,
+        "searching": true,
+        "autoWidth": false
+    });
 
     for (var i = 0; i < content.length; i++) {
         var tag;
-        const [concern, status] = await Promise.all ([fetchData('concerns/read_single.php?concern_id=' + content[i].concern_id), getStatusName('ticket_status', content[i].ticket_status_id)]);
+        const [concern, status] = await Promise.all ([fetchData('concerns/category.php?concern_id=' + content[i].concern_id), getStatusName('ticket_status', content[i].ticket_status_id)]);
         
         tag = (status == "RESOLVED") ? 'bg-success' : (status == "PENDING") ? 'bg-warning' : 'bg-danger';
         
         t.row.add($(`
             <tr>
                 <th scope="row">${content[i].ticket_num}</th>
-                <td>${concern.concern_category}</td>
+                <td>${concern.category}</td>
                 <td>${formatDateString(content[i].date_filed)}</td>
                 <td>${(content.date_resolved == null) ? 'N/A' : formatDateString(content.date_resolved)}</td>
-                <td>${content[i].ticket_num}</td>
                 <td><span class="badge ${tag}">${status}</span></td>
                 <td><button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#view-ticket" data-bs-whatever="${content[i].ticket_num}"><i class="ri ri-eye-fill"></i></button></td>
-                </tr>
+            </tr>
+        `)).draw(false);
+
+        t.row.add($(`
+            <tr>
+                <th scope="row">${content[i].ticket_num}</th>
+                <td>${concern.category}</td>
+                <td>${formatDateString(content[i].date_filed)}</td>
+                <td>${(content.date_resolved == null) ? 'N/A' : formatDateString(content.date_resolved)}</td>
+                <td><span class="badge ${tag}">${status}</span></td>
+                <td><button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#view-ticket" data-bs-whatever="${content[i].ticket_num}"><i class="ri ri-eye-fill"></i></button></td>
+            </tr>
+        `)).draw(false);
+
+        t.row.add($(`
+            <tr>
+                <th scope="row">${content[i].ticket_num}</th>
+                <td>${concern.category}</td>
+                <td>${formatDateString(content[i].date_filed)}</td>
+                <td>${(content.date_resolved == null) ? 'N/A' : formatDateString(content.date_resolved)}</td>
+                <td><span class="badge ${tag}">${status}</span></td>
+                <td><button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#view-ticket" data-bs-whatever="${content[i].ticket_num}"><i class="ri ri-eye-fill"></i></button></td>
+            </tr>
         `)).draw(false);
     }
 
@@ -53,7 +62,7 @@ async function setTicketHistory() {
         let data, id, content;
 
         data = await fetchData('ticket/read_single.php?ticket_num=' + data_id);
-        const [status, category, admin] = await Promise.all([getStatusName('ticket_status', data.ticket_status_id), fetchData('concerns/read_single.php?concern_id=' + data.concern_id), fetchData('admin/read_single.php?admin_id=' + data.admin_id)]);
+        const [status, concern] = await Promise.all([getStatusName('ticket_status', data.ticket_status_id), fetchData('concerns/category.php?concern_id=' + data.concern_id)]);
 
         (data.ticket_status_id == 3) ? setTagElement('ticket_status', 1) : (data.ticket_status_id == 2) ? setTagElement('ticket_status', 2) : setTagElement('ticket_status', 3);
         
@@ -64,18 +73,16 @@ async function setTicketHistory() {
             '#date_filed', 
             '#resolution_details',
             '#date_resolved',
-            '#admin_id',
             '#ticket_status'
         ];
 
         content = [
             data.ticket_num, 
-            category.concern_category, 
+            concern.category, 
             data.concern_details, 
             formatDateString(data.date_filed),
             (data.resolution_details == null || data.resolution_details == "") ? 'N/A' : data.resolution_details, 
             (data.date_resolved == null || data.date_resolved == "0000-00-00") ? 'N/A' : formatDateString(data.date_resolved), 
-            (data.admin_id == null) ? 'N/A' : admin.first_name + ' ' + admin.last_name, 
             status
         ];
 
@@ -83,6 +90,8 @@ async function setTicketHistory() {
             $(id[i]).val(content[i]);
         }
     });
+
+    setCreateTicket();
 }
 
 async function generateTicketNum() {

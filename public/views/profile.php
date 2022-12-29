@@ -22,7 +22,7 @@
 </section><!-- End Hero -->
 
      <!-- ======= Profile Section ======= -->
-<section id="profile-info" class="view-profile d-flex align-items-center">
+<section id="profile-info" class="view-profile align-items-center">
   <div class="container" data-aos="fade-up">
     <header class="section-header">
       <h2>Profile</h2>
