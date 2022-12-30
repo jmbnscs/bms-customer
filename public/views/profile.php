@@ -24,12 +24,13 @@
      <!-- ======= Profile Section ======= -->
 <section id="profile-info" class="view-profile align-items-center">
   <div class="container" data-aos="fade-up">
-    <header class="section-header">
-      <h2>Profile</h2>
-      <p>Check your Information</p>
-    </header>
+      <header class="section-header">
+        <h2>Profile</h2>
+        <p>Check your Information</p>
+      </header>
 
-    <div class="row" data-aos="fade-left">
+      <div class="row" data-aos="fade-left">
+      
       <!-- Customer Information -->
       <div
         class="col-lg-3 col-md-6"

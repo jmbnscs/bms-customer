@@ -379,7 +379,7 @@ h6 {
 section {
   padding: 60px 0;
   display: block;
-  height:100vh;
+  /* height:100vh; */
   width: 100%;
   box-sizing:border-box;
 }
@@ -440,8 +440,6 @@ section {
 		background-position: 0% 50%;
 	}
 }
-
-
 
 .hero h1 {
   margin: 0;
@@ -694,7 +692,7 @@ section {
   position: relative;
   overflow: hidden;
   transition: 0.3s;
-  height: 500px;
+  height: 650px;
   /* margin-bottom: 15px; */
 }
 
@@ -766,6 +764,12 @@ section {
   font-size: 26px;
   margin: 15px 0 0 0;
   color: #444444;
+}
+
+@media (max-width: 768px) {
+  .view-profile .box {
+    height: fit-content;
+  }
 }
 
 /*--------------------------------------------------------------
