@@ -148,7 +148,7 @@ function logout() {
         url: '../../app/includes/logout.inc.php',
         cache: false,
         success: function() {
-            window.location.replace('../views/login');
+            window.location.replace('../views/home');
         },
         error: function (xhr, status, error) {
             console.error(xhr)

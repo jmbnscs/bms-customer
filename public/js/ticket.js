@@ -5,7 +5,7 @@ $(document).ready(function () {
 });
 
 async function setTicketPage() {
-    let content = await fetchData('ticket/read_single_account.php?account_id=' + account_id);
+    let content = await fetchData('ticket/display.php?account_id=' + account_id);
     var t = $('#customer-ticket-tbl').DataTable({
         pageLength: 5,
         lengthChange: false,
@@ -15,39 +15,17 @@ async function setTicketPage() {
 
     for (var i = 0; i < content.length; i++) {
         var tag;
-        const [concern, status] = await Promise.all ([fetchData('concerns/category.php?concern_id=' + content[i].concern_id), getStatusName('ticket_status', content[i].ticket_status_id)]);
         
-        tag = (status == "RESOLVED") ? 'bg-success' : (status == "PENDING") ? 'bg-warning' : 'bg-danger';
+        tag = (content[i].status == "RESOLVED") ? 'bg-success' : (content[i].status == "PENDING") ? 'bg-warning' : 'bg-danger';
         
         t.row.add($(`
             <tr>
-                <th scope="row">${content[i].ticket_num}</th>
-                <td>${concern.category}</td>
-                <td>${formatDateString(content[i].date_filed)}</td>
-                <td>${(content.date_resolved == null) ? 'N/A' : formatDateString(content.date_resolved)}</td>
-                <td><span class="badge ${tag}">${status}</span></td>
-                <td><button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#view-ticket" data-bs-whatever="${content[i].ticket_num}"><i class="ri ri-eye-fill"></i></button></td>
-            </tr>
-        `)).draw(false);
-
-        t.row.add($(`
-            <tr>
-                <th scope="row">${content[i].ticket_num}</th>
-                <td>${concern.category}</td>
-                <td>${formatDateString(content[i].date_filed)}</td>
-                <td>${(content.date_resolved == null) ? 'N/A' : formatDateString(content.date_resolved)}</td>
-                <td><span class="badge ${tag}">${status}</span></td>
-                <td><button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#view-ticket" data-bs-whatever="${content[i].ticket_num}"><i class="ri ri-eye-fill"></i></button></td>
-            </tr>
-        `)).draw(false);
-
-        t.row.add($(`
-            <tr>
-                <th scope="row">${content[i].ticket_num}</th>
-                <td>${concern.category}</td>
-                <td>${formatDateString(content[i].date_filed)}</td>
-                <td>${(content.date_resolved == null) ? 'N/A' : formatDateString(content.date_resolved)}</td>
-                <td><span class="badge ${tag}">${status}</span></td>
+                <th scope="row">${i+1}</th>
+                <td>${content[i].ticket_num}</td>
+                <td>${content[i].category}</td>
+                <td>${content[i].date_filed}</td>
+                <td>${content[i].date_resolved}</td>
+                <td><span class="badge ${tag}">${content[i].status}</span></td>
                 <td><button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#view-ticket" data-bs-whatever="${content[i].ticket_num}"><i class="ri ri-eye-fill"></i></button></td>
             </tr>
         `)).draw(false);
