@@ -7,12 +7,19 @@
     require '../helpers/phpmailer/src/SMTP.php';
 
     if (isset($_POST['email'])) {
+        $ch = require 'curl.init.php';
+        $url = DIR_API . "logs/get_mail_auth.php?id=1";
+        curl_setopt($ch, CURLOPT_URL, $url);
+        $resp = curl_exec($ch);
+        $mail_data = json_decode($resp, true);
+        curl_close($ch);
+
         $mail = new PHPMailer(true);
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'bill.gstech@gmail.com';
-        $mail->Password = 'kqrakwidvjjmstck';
+        $mail->Username = $mail_data['email'];
+        $mail->Password = $mail_data['password'];
         $mail->SMTPSecure = 'ssl';
         $mail->Port = 465;
 
