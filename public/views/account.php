@@ -1,11 +1,8 @@
-<?php 
-  include '../models/header.html';
-//  include '../models/navbar.html'; ?>
+<?php include '../models/header.html'; ?>
 
-<!-- customer Account profile section -->
+<!-- Customer Account Section -->
 <main id="main" class=" Account"> <!-- NOTE: overflow-scroll class for the datatables -->
-  <!-- ======= Edit Profile ======= -->
-  <section id="edit-profile" class="edit-profile">
+  <section>
     <div class="container" data-aos="fade-up">
       <div class="row">
         <div class="adjust-top col-xl-12">
@@ -20,10 +17,6 @@
                   <h4>Billing Statements</h4>
                 </button>
               </li>
-              
-              <!-- <li class="nav-item flex-fill">
-                <button class="nav-link active w-100" data-bs-toggle="tab" data-bs-target="#customer-invoice" id="customer-invoice-tab">Invoice</button>
-              </li> -->
               
               <li class="nav-item flex-fill">
                 <button class="nav-link w-100" data-bs-toggle="tab" data-bs-target="#customer-payment" id="customer-payment-tab">
@@ -54,6 +47,7 @@
                       <table class="table table-borderless" id="customer-invoice-tbl">
                         <thead>
                           <tr>
+                            <th scope="col">#</th>
                             <th scope="col">Billing ID</th>
                             <th scope="col">Disconnection Date</th>
                             <th scope="col">Total Bill</th>
@@ -86,6 +80,7 @@
                       <table class="table table-borderless" id="customer-payment-tbl">
                         <thead>
                           <tr>
+                            <th scope="col">#</th>
                             <th scope="col">Reference ID</th>
                             <th scope="col">Amount Paid</th>
                             <th scope="col">Payment Date</th>
@@ -117,6 +112,7 @@
                       <table class="table table-borderless" id="customer-prorate-tbl">
                         <thead>
                           <tr>
+                            <th scope="col">#</th>
                             <th scope="col">Prorate ID</th>
                             <th scope="col">Duration</th>
                             <th scope="col">Prorate Discount</th>
@@ -135,24 +131,6 @@
             </div>
           </div>
         </div><!-- End Customer Prorate History -->
-
- 
-        <!-- Template -->
-        <!-- <div class="tab-content pt-1">
-          <div class="tab-pane fade customer-invoice" id="customer-invoice">
-            <div class="row">
-              <div class="col-sm-12">
-                <div class="card">
-                  <div class="card-body">
-                    <div>
-                      <h5 class="card-title">Invoice History</h5>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
 
         </div>
       </div>
@@ -211,8 +189,6 @@
             <!-- Modal Footer -->
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <!-- <button type="button" class="btn btn-primary" id="edit-btn">Edit</button>
-              <button type="submit" class="btn btn-success" id="save-btn" disabled>Save Changes</button> -->
             </div>
 
           </div>
@@ -273,8 +249,6 @@
             <!-- Modal Footer -->
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <!-- <button type="button" class="btn btn-primary" id="edit-btn">Edit</button>
-              <button type="submit" class="btn btn-success" id="save-btn" disabled>Save Changes</button> -->
             </div>
           </div>
         </div>
