@@ -21,12 +21,12 @@ async function setTicketPage() {
         t.row.add($(`
             <tr>
                 <th scope="row">${i+1}</th>
-                <td>${content[i].ticket_num}</td>
-                <td>${content[i].category}</td>
-                <td>${content[i].date_filed}</td>
-                <td>${content[i].date_resolved}</td>
-                <td><span class="badge ${tag}">${content[i].status}</span></td>
-                <td><button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#view-ticket" data-bs-whatever="${content[i].ticket_num}"><i class="ri ri-eye-fill"></i></button></td>
+                <td data-label="Ticket #">${content[i].ticket_num}</td>
+                <td data-label="Category">${content[i].category}</td>
+                <td data-label="Date Filed">${content[i].date_filed}</td>
+                <td data-label="Date Resolved">${content[i].date_resolved}</td>
+                <td data-label="Status"><span class="badge ${tag}">${content[i].status}</span></td>
+                <td data-label="View"><button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#view-ticket" data-bs-whatever="${content[i].ticket_num}"><i class="ri ri-eye-fill"></i></button></td>
             </tr>
         `)).draw(false);
     }

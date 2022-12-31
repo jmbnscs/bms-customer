@@ -9,10 +9,7 @@ $(document).ready( () => {
         document.getElementById('account-tab').click();
     }
 
-    if (localStorage.getItem("save_message") == "Customer Updated Successfully.") {
-        toastr.success(localStorage.getItem("save_message"));
-        localStorage.removeItem("save_message");
-    }
+    displaySuccessMessage();
 });
 
 async function displayDataOnTabs() {

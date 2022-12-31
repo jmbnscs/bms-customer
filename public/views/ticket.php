@@ -10,11 +10,11 @@
           <div class="tkt-tbl card">
             <div class="row pt-3 ps-3">
               <div class="col-sm-9"><h5 class="card-title">Ticket History</h5></div>
-              <div class="col-sm-3 text-center pt-2"><a href="#create"><button class="btn btn-dark">Create New</button></a></div>
+              <div class="col-sm-3 text-center pt-2"><a href="#create"><button class="btn btn-primary">Create New</button></a></div>
             </div>
             <div class="card-body">
               <table class="table table-borderless pt-3" id="customer-ticket-tbl">
-                <thead class="table-dark">
+                <thead>
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Ticket No.</th>
@@ -69,7 +69,7 @@
               </div>
 
               <div class="text-center pt-2">
-                <button class="btn btn-dark" type="submit">Submit Ticket</button>
+                <button class="btn btn-primary" type="submit">Submit Ticket</button>
               </div>
 
           </div>
