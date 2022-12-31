@@ -29,7 +29,7 @@
 					 </div>
 					 <div class="div">
 						 <h5>Username / Account ID</h5>
-						 <input type="text" class="form-control" name="customer_username" id="customer_username" required>
+						 <input type="text" class="form-control" name="customer_username" id="customer_username" autocomplete="on" required>
 					 </div>
 				 </div>
 				 <div class="input-div pass">
@@ -38,7 +38,7 @@
 					</div>
 					<div class="div">
 						<h5>Password</h5>
-						<input type="password" class="form-control" name="customer_password" id="customer_password" required>
+						<input type="password" class="form-control" name="customer_password" id="customer_password" autocomplete="on" required>
 					</div>
 				</div>
 				<a href="forgot.php" target="_blank">Forgot Password?</a>

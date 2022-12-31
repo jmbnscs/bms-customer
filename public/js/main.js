@@ -1,23 +1,57 @@
-const DIR_API = 'https://bms.gstechbms.online/gstech_api/api/';
+const DIR_API = location.protocol + '//' + location.host + '/gstech_api/api/';
 const account_id = localStorage.getItem('account_id');
 const pw_check = localStorage.getItem('pw');
+const customer_data = getUserData();
+let customer_name;
 
 // On Boot Load
 $(document).ready( () => {
     if (pw_check != null) { 
         let msg = "Please change your password.";
         let title = "Important!"
-        setToastrArgs(msg, title);
+        toastr.error(msg, title);
     }
 
-    setDefaults();
-    setToastr();
+    customer_data.then(data => {
+        $("#user-name").text(data.first_name + ' ' + data.last_name);
+        $('#user-rating').text(data.rating_status);
+        $('#user-fn').text(data.first_name);
+        $('#user-icon').text((data.first_name).charAt(0) + (data.last_name).charAt(0));
+
+        customer_name = `${data.first_name} ${data.last_name}`;
+    })
+
 });
+
+// Navbar Active Config
+$(() => {
+    const path = location.pathname.split('/')[4];
+    const id = 'nav-' + path;
+    $('#' + id).addClass('active');
+})
+
+function displaySuccessMessage() {
+    const msg = sessionStorage.getItem('save_message');
+    if (msg !== null) {
+        toastr.success(sessionStorage.getItem("save_message"));
+        sessionStorage.removeItem("save_message");
+    }
+}
 
 // Check if Default Password
 function isDefault () {
     if (pw_check == 0) { 
-        window.location.replace('../views/settings.php');
+        window.location.replace('../views/settings');
+    }
+}
+
+async function getUserData() {
+    let url = DIR_API + 'views/customer_data.php?account_id=' + account_id;
+    try {
+        let res = await fetch(url);
+        return await res.json();
+    } catch (error) {
+        console.log(error);
     }
 }
 
@@ -49,16 +83,6 @@ async function getStatusName(status_table, status_id) {
     let content = await statusResponse.json();
 
     return content.status_name;
-}
-
-async function getUserData() {
-    let url = DIR_API + 'views/customer_data.php?account_id=' + account_id;
-    try {
-        let res = await fetch(url);
-        return await res.json();
-    } catch (error) {
-        console.log(error);
-    }
 }
 
 async function getAccountData() {
@@ -117,28 +141,6 @@ async function getAdminData(admin_id) {
     }
 }
 
-// Display Default Data
-async function setDefaults () {
-    const user_data = await getUserData();
-
-    $("#user-name").text(user_data.first_name + ' ' + user_data.last_name);
-    $('#user-rating').text(user_data.rating_status);
-    $('#user-fn').text(user_data.first_name);
-    $('#user-icon').text((user_data.first_name).charAt(0) + (user_data.last_name).charAt(0));
-}
-
-// Navbar Active Config
-$(() => {
-    const path = location.pathname.split('/')[4];
-    const id = 'nav-' + path.split('.')[0];
-
-    $('#' + id).addClass('active');
-
-    if (id == 'nav-profile' || id == 'nav-settings')  {
-        $('#nav-profile').addClass('active');
-    }
-})
-
 // Logout Session
 function logout() {
     sessionStorage.clear();
@@ -147,7 +149,7 @@ function logout() {
         url: '../../app/includes/logout.inc.php',
         cache: false,
         success: function() {
-            window.location.replace('../views/login.php');
+            window.location.replace('../views/home');
         },
         error: function (xhr, status, error) {
             console.error(xhr)
@@ -155,46 +157,21 @@ function logout() {
     });
 }
 
-// Toastr Configs
-function setToastr() {
-    toastr.options = {
-        "closeButton": true,
-        "debug": false,
-        "newestOnTop": false,
-        "progressBar": false,
-        "rtl": false,
-        "positionClass": "toast-bottom-center",
-        "preventDuplicates": false,
-        "onclick": null,
-        "showDuration": 300,
-        "hideDuration": 1000,
-        "timeOut": 5000,
-        "extendedTimeOut": 1000,
-        "showEasing": "swing",
-        "hideEasing": "linear",
-        "showMethod": "fadeIn",
-        "hideMethod": "fadeOut"
-      }
+toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": false,
+    "rtl": false,
+    "positionClass": "toast-bottom-center",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": 300,
+    "hideDuration": 1000,
+    "timeOut": 5000,
+    "extendedTimeOut": 1000,
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
 }
-
-function setToastrArgs(msg, title) {
-    toastr.options = {
-        "closeButton": true,
-        "debug": false,
-        "newestOnTop": false,
-        "progressBar": false,
-        "positionClass": "toast-bottom-center",
-        "preventDuplicates": true,
-        "onclick": null,
-        "showDuration": "2000",
-        "hideDuration": "0",
-        "timeOut": "0",
-        "extendedTimeOut": "0",
-        "showEasing": "swing",
-        "hideEasing": "linear",
-        "showMethod": "fadeIn",
-        "hideMethod": "fadeOut"
-      };
-      
-      toastr.error(msg, title);
-    }

@@ -378,11 +378,15 @@ h6 {
 
 section {
   padding: 60px 0;
+  display: block;
+  /* height:100vh; */
+  width: 100%;
+  box-sizing:border-box;
 }
 
 .section-header {
   text-align: center;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
 }
 
 .section-header h2 {
@@ -395,7 +399,7 @@ section {
 }
 
 .section-header p {
-  margin: 10px 0 0 0;
+  /* margin: 10px 0 0 0; */
   padding: 0;
   font-size: 38px;
   line-height: 42px;
@@ -436,8 +440,6 @@ section {
 		background-position: 0% 50%;
 	}
 }
-
-
 
 .hero h1 {
   margin: 0;
@@ -659,7 +661,6 @@ section {
   color: #2c384e;
   font-size: 20px;
   background-color: rgba(255, 255, 255, 0.6);
-  /* background-color: #ebeef4; */
 }
 
 .settings .nav-link:hover,
@@ -690,8 +691,8 @@ section {
   position: relative;
   overflow: hidden;
   transition: 0.3s;
-  height: 630px;
-  margin-bottom: 15px;
+  height: 650px;
+  /* margin-bottom: 15px; */
 }
 
 .view-profile .box:hover {
@@ -737,7 +738,7 @@ section {
   color: #444444;
   text-align: left;
   line-height: 26px;
-  font-size: 18px;
+  font-size: 15px;
   margin-bottom: 30px;
 }
 
@@ -762,4 +763,69 @@ section {
   font-size: 26px;
   margin: 15px 0 0 0;
   color: #444444;
+}
+
+@media (max-width: 768px) {
+  .view-profile .box {
+    height: fit-content;
+  }
+}
+
+/*--------------------------------------------------------------
+# Ticket Page
+--------------------------------------------------------------*/
+.tkt-tbl {
+  min-height: 550px;
+}
+
+/*--------------------------------------------------------------
+# DataTable
+--------------------------------------------------------------*/
+@media (max-width: 768px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+  
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
 }

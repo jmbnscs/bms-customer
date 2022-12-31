@@ -17,8 +17,8 @@ inputs.forEach(input => {
     input.addEventListener("blur", RemoveClass);
 });
 
-const DIR_API = 'https://bms.gstechbms.online/gstech_api/api/';
-const DIR_APP_LOAD = 'https://bms.gstechbms.online/bms-customer/app/includes/';
+const DIR_API = location.protocol + '//' + location.host + '/gstech_api/api/'
+const DIR_APP_LOAD = location.protocol + '//' + location.host + '/bms-customer/app/includes/';
 
 $(function () {
     $('form').on('submit', function (e) {
@@ -48,7 +48,7 @@ $(function () {
                             setTimeout (
                                 toastr.success('Email verification sent.'), 5000
                             );
-                            window.location.replace('login.php');
+                            window.location.replace('login');
                         }
                         else {
                             toastr.error('Some error has occured, please try again later.');
