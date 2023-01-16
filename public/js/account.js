@@ -36,6 +36,8 @@ async function setInvoiceHistory() {
 }
 
 async function setPaymentHistory() {
+
+    // -------------------------------- Tagged Payments
     let content = await fetchData('payment/read_single_account.php?account_id=' + account_id);
     var t = $('#customer-payment-tbl').DataTable({
         pageLength : 5,
@@ -77,7 +79,109 @@ async function setPaymentHistory() {
         // })
     });
 
-    setViewModal('view-payment')
+    setViewModal('view-payment');
+    // -------------------------------- End of Tagged Payments
+
+    
+    // -------------------------------- Uploaded Payments
+
+    // let invalid_approval_content = await fetchData('payment/read_invalid_approval.php');
+
+    // var invalid_table = $('#invalid-payments-table').DataTable({
+    //     pageLength: 5,
+    //     lengthMenu: [5, 10, 20],
+    //     "searching": true,
+    //     "autoWidth": false
+    // });
+
+    // for (var i = 0; i < invalid_approval_content.length; i++) {
+    //     invalid_table.row.add($(`
+    //         <tr>
+    //             <th scope="row" style="color: #012970;"><strong>${i+1}</strong></th>
+    //             <td data-label="Account ID">${invalid_approval_content[i].account_id}</td>
+    //             <td data-label="Date Uploaded">${new Date(invalid_approval_content[i].date_uploaded).toLocaleDateString('PHT')}</td>
+    //             <td data-label="Status"><span class="badge bg-danger">${invalid_approval_content[i].status}</span></td>
+    //             <td data-label="Actions">
+    //                 <button type="button" class="btn btn-outline-info m-1" data-bs-toggle="modal" data-bs-target="#view-invalid-modal" data-bs-whatever="${invalid_approval_content[i].approval_id}" ><i class="bi bi-eye"></i></button>
+    //             </td>
+    //         </tr>
+    //     `)).draw(false);
+    // }
+
+    // var invalidViewModal = document.getElementById('view-invalid-modal');
+    // invalidViewModal.addEventListener('show.bs.modal', async function (event) {
+
+    //     var button = event.relatedTarget;
+    //     var data_id = button.getAttribute('data-bs-whatever');
+    //     let data, id, content;
+    //     data = await fetchData('payment/read_single_invalid.php?approval_id=' + data_id);
+
+    //     const account_data = await fetchData('customer/read_single.php?account_id=' + data.account_id);
+    //     var modalTitle = invalidViewModal.querySelector('.modal-title');
+    //     modalTitle.textContent = account_data.first_name + ' ' + account_data.last_name;
+
+    //     document.querySelector("#view_uploaded_image").src = '../../app/includes/view_image.php?approval_id=' + data_id;
+    //     document.querySelector("#view_uploaded_image_new_tab").href = '../../app/includes/view_image.php?approval_id=' + data_id;
+
+    //     const react_fn = document.getElementById('react-invalid-data');
+    //     react_fn.onsubmit = (e) => {
+    //         e.preventDefault();
+    //         processReactivate();
+    //     };
+
+    //     async function processReactivate() {
+    //         const react_data = JSON.stringify({
+    //             'approval_id' : data_id
+    //         });
+    //         const response = await deleteData('payment/react_invalid_payment.php', react_data);
+
+    //         const log = await logActivity('Reactivated Payment Record #' + data_id + ' [' + data.account_id + ']', 'Invalid Payment');
+            
+    //         if (response.success && log) {
+    //             sessionStorage.setItem('save_message', "Payment Record Reactivated Successfully.");
+    //             window.location.reload();
+    //         }
+    //         else {
+    //             toastr.error("Transaction not processed.");
+    //         }
+    //     }
+    // });
+
+    // // -------------------------------- End Invalid Approval Payments
+
+    // // Uploaded Payment Modal
+    // var pendingDeleteModal = document.getElementById('view-uploaded-modal');
+    // pendingDeleteModal.addEventListener('show.bs.modal', async function (event) {
+
+    //     $('#view_pending_account_id').val(data.account_id);
+
+    //     document.querySelector("#view_uploaded_image").src = '../../app/includes/view_image.php?approval_id=' + data_id;
+    //     document.querySelector("#view_uploaded_image_new_tab").href = '../../app/includes/view_image.php?approval_id=' + data_id;
+
+    //     const delete_fn = document.getElementById('pending-delete-data');
+    //     delete_fn.onsubmit = (e) => {
+    //         e.preventDefault();
+    //         processDelete();
+    //     };
+
+    //     async function processDelete() {
+    //         const delete_data = JSON.stringify({
+    //             'approval_id' : data_id
+    //         });
+    //         const response = await deleteData('payment/invalid_pending_payment.php', delete_data);
+
+    //         const log = await logActivity('Invalidated Payment Record #' + data_id + ' [' + data.account_id + ']', 'Invalid Pending Payment');
+            
+    //         if (response.success && log) {
+    //             sessionStorage.setItem('save_message', "Payment Record Invalidated Successfully.");
+    //             window.location.reload();
+    //         }
+    //         else {
+    //             toastr.error("Transaction not processed.");
+    //         }
+    //     }
+        
+    // });
 }
 
 async function setProrateHistory() {
