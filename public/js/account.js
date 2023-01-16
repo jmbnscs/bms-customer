@@ -66,6 +66,17 @@ async function setPaymentHistory() {
         `)).draw(false);
     }
 
+    var uploadModal = document.getElementById('upload-payment-modal');
+    uploadModal.addEventListener('show.bs.modal', async function (event) {
+        $('#upload_account_id').val(account_id);
+
+        // $('#upload-payment').on('submit', (e) => {
+        //     // e.preventDefault();
+        //     $('#upload-payment').attr('action', '../../app/includes/upload_payment.php');
+            
+        // })
+    });
+
     setViewModal('view-payment')
 }
 

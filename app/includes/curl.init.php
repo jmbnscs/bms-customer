@@ -1,8 +1,17 @@
 <?php
-// Declare Main DIR
-if (!defined("DIR_API")) define("DIR_API", "https://bms.gstechbms.online/gstech_api/api/");
+if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
+        $url = "https://";   
+else  
+        $url = "http://";   
 
-// Inititiate curl
+$url.= $_SERVER['HTTP_HOST'];   
+
+// $url.= $_SERVER['REQUEST_URI'];  
+$url.= "/gstech_api/api/";  
+    
+// Declare Main DIR
+if (!defined("DIR_API")) define("DIR_API", $url);
+
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
