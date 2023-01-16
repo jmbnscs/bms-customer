@@ -1,4 +1,4 @@
-<?php include '../models/header.html'; ?>
+<?php include '../models/header.html'; include '../../app/includes/upload_payment.php'?>
 
 <!-- Customer Account Section -->
 <main id="main" class=" Account"> <!-- NOTE: overflow-scroll class for the datatables -->
@@ -76,7 +76,10 @@
                 <div class="card overflow-auto">
                   <div class="card-body">
                     <div>
-                      <h5 class="card-title">Payment History</h5>
+                      <div class="row pt-3 p-3">
+                        <div class="col-sm-9"><h5 class="card-title">Payment History</h5></div>
+                        <div class="col-sm-3 text-center pt-2"><a href="#"><button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#upload-payment-modal">Upload Payment</button></a></div>
+                      </div>
                       <table class="table table-borderless" id="customer-payment-tbl">
                         <thead>
                           <tr>
@@ -194,6 +197,50 @@
           </div>
         </div>
       </div>
+
+      <!-- Upload Payment Modal -->
+      <form action="" method="post" enctype="multipart/form-data" id="upload-payment">
+        <div class="modal fade" id="upload-payment-modal" tabindex="-1">
+          <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-m">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h5 class="modal-title">Upload Payment</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+
+              <!-- Modal Body -->
+              <div class="modal-body">
+                <div class="row mb-3">
+                  <label for="upload_account_id" class="col-sm-4 col-form-label">Account ID</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" id="upload_account_id" name="upload_account_id" value="" readonly>
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <label for="payment_file" class="col-sm-4 col-form-label">Attach Payment</label>
+                  <div class="col-sm-8">
+                    <input type="file" class="form-control" id="payment_file" name="payment_file" accept="image/png, image/jpeg" value="" required>
+                  </div>
+                </div>
+
+              </div>
+              <!-- End Modal Body -->
+
+              <!-- Modal Footer -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <!-- <button type="submit" class="btn btn-success" id="edit-btn">Save Changes</button> -->
+                <input type="submit" name="upload_submit" id="upload_submit" class="btn btn-success" value="Upload">
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </form>
+      
 
       <!-- Prorate Record Modal -->
       <div class="modal fade" id="view-prorate" tabindex="-1">

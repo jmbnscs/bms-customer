@@ -1,4 +1,5 @@
 const DIR_API = location.protocol + '//' + location.host + '/gstech_api/api/';
+const DIR_APP = location.protocol + '//' + location.host + '/bms-customer/app/includes/';
 const account_id = localStorage.getItem('account_id');
 const pw_check = localStorage.getItem('pw');
 const customer_data = getUserData();

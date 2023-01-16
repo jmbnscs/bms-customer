@@ -8,9 +8,9 @@
       <div class="row">
         <div class="account-ticket col-xl-12">
           <div class="tkt-tbl card">
-            <div class="row pt-3 ps-3">
+            <div class="row pt-3 p-3">
               <div class="col-sm-9"><h5 class="card-title">Ticket History</h5></div>
-              <div class="col-sm-3 text-center pt-2"><a href="#create"><button class="btn btn-primary">Create New</button></a></div>
+              <div class="col-sm-3 text-center pt-2"><a href="#create"><button class="btn btn-primary w-100">Submit a Ticket</button></a></div>
             </div>
             <div class="card-body">
               <table class="table table-borderless pt-3" id="customer-ticket-tbl">
@@ -43,7 +43,7 @@
         <div class="card col-md-6">
           <div class="card-body pt-4">
             <header class="section-header">
-              <p class="text-center">Create a Ticket</p>
+              <p class="text-center">Submit a Ticket</p>
             </header>
 
               <div class="row-4">
