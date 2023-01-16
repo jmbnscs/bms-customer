@@ -18,7 +18,7 @@ inputs.forEach(input => {
 });
 
 // ------------------- BACKEND JS
-const DIR_API = 'http://localhost/gstech_api/api/';
+const DIR_API = location.protocol + '//' + location.host + '/gstech_api/api/';
 
 async function login() {
     const login_username = $('#customer_username').val();
@@ -41,7 +41,7 @@ async function login() {
 
     if (content.message == 'success') {
         localStorage.setItem('account_id', content.account_id);
-        window.location.replace('../views/home.php');
+        window.location.replace('../views/profile');
     }
     else if (content.message == 'change password') {
         localStorage.setItem('pw', 0);
@@ -56,14 +56,6 @@ async function login() {
 $(function () {
     $('form').on('submit', function (e) {
         e.preventDefault();
-
-        // if (localStorage.getItem('customer_username') == null) {
-        //     localStorage.setItem('customer_username', customer_username);
-        // }
-        // else if (localStorage.getItem('customer_username') != customer_username) {
-        //     localStorage.setItem('attempts', 3);
-        //     localStorage.setItem('customer_username', customer_username);
-        // }
         login();
 
     });

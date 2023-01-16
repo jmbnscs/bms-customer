@@ -1,48 +1,87 @@
-<?php 
-  include '../models/header.html';
-//  include '../models/navbar.html'; ?>
+<?php include '../models/header.html'; ?>
 
-<!-- customer Ticket History section -->
+<!-- Customer Ticket History Section -->
 <main id="main" class="customer-page">
 
-  <!-- ======= Edit Profile ======= -->
-  <section id="edit-profile" class="edit-profile">
-    <div class="container adjust-top" data-aos="fade-up">
+  <section class="hero d-flex align-items-center">
+    <div class="container" data-aos="fade-up">
       <div class="row">
-        <div class="col-xl-12">
-          <!-- Customer Ticket History-->
-          <div class="row">
-            <div class="account-ticket col-sm-12">
-              <div class="card overflow-auto">
-                <div class="card-body">
-                  <div>
-                    <h5 class="card-title">Ticket History</h5>
-                    <table class="table table-borderless" id="customer-ticket-tbl">
-                      <thead>
-                        <tr>
-                          <th scope="col">Ticket #</th>
-                          <th scope="col">Concern</th>
-                          <th scope="col">Date Filed</th>
-                          <th scope="col">Date Resolved</th>
-                          <th scope="col">Admin</th>
-                          <th scope="col">Status</th>
-                          <th scope="col">View</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
+        <div class="account-ticket col-xl-12">
+          <div class="tkt-tbl card">
+            <div class="row pt-3 p-3">
+              <div class="col-sm-9"><h5 class="card-title">Ticket History</h5></div>
+              <div class="col-sm-3 text-center pt-2"><a href="#create"><button class="btn btn-primary w-100">Submit a Ticket</button></a></div>
             </div>
-          </div><!-- End Customer Ticket History -->
-
+            <div class="card-body">
+              <table class="table table-borderless pt-3" id="customer-ticket-tbl">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Ticket No.</th>
+                    <th scope="col">Concern</th>
+                    <th scope="col">Date Filed</th>
+                    <th scope="col">Date Resolved</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">View</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+  </section> <!-- End of Customer Ticket History Section-->
 
-      <!-- Ticket History Modal -->
-      <div class="modal fade" id="view-ticket" tabindex="-1">
+  <!-- Create a Ticket -->
+  <section class="align-items-center" id="create">
+  <form class="ticket-form" id="create-ticket">
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="card col-md-6">
+          <div class="card-body pt-4">
+            <header class="section-header">
+              <p class="text-center">Submit a Ticket</p>
+            </header>
+
+              <div class="row-4">
+                <label for="ticket_num_create" class="form-label">Ticket Number</label>
+                <input type="text" class="form-control" id="ticket_num_create" readonly>
+              </div>
+
+              <div class="row-4">
+                <label for="date_filed_create" class="form-label">Date Filed</label>
+                  <input type="date" class="form-control" id="date_filed_create" readonly>
+              </div>
+
+              <div class="row-g-3">
+                <label for="concern_id_create" class="form-label">Concern Category</label>
+                  <select class="form-select" id="concern_id_create" required>
+                    <option selected disabled value="">Select Concern Category</option>
+                  </select>
+              </div>
+
+              <div class="row-md-4">
+                <label for="concern_details_create" class="form-label">Concern Details</label>
+                <textarea class="form-control" id="concern_details_create" rows="4" placeholder="Please tell us your issue..." required></textarea>
+              </div>
+
+              <div class="text-center pt-2">
+                <button class="btn btn-primary" type="submit">Submit Ticket</button>
+              </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  </section>
+
+
+  <!-- Ticket History Modal -->
+  <div class="modal fade" id="view-ticket" tabindex="-1">
         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-m">
           <div class="modal-content">
 
@@ -97,13 +136,6 @@
               </div>
 
               <div class="row mb-3">
-                <label for="admin_id" class="col-sm-4 col-form-label">Admin</label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" id="admin_id" value="" readonly>
-                </div>
-              </div>
-
-              <div class="row mb-3">
                 <label for="ticket_status" class="col-sm-4 col-form-label">Status</label>
                 <div class="col-sm-4">
                   <input type="text" class="form-control text-center " id="ticket_status" value="" readonly>
@@ -116,59 +148,10 @@
             <!-- Modal Footer -->
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <!-- <button type="button" class="btn btn-primary" id="edit-btn">Edit</button>
-              <button type="submit" class="btn btn-success" id="save-btn" disabled>Save Changes</button> -->
             </div>
           </div>
         </div>
       </div>
-
-
-    </div>
-  </section> <!-- End of customer Account profile section-->
-
-  <div class="container">
-    <div class="row">
-      <div class="card">
-        <div class="card-body pt-4">
-          <header class="section-header">
-            <p class="text-center">Create a Ticket</p>
-          </header>
-
-          <form class="ticket-form row g-3" id="create-ticket">
-            <div class="row-4">
-              <label for="ticket_num_create" class="form-label">Ticket Number</label>
-              <input type="text" class="form-control" id="ticket_num_create" readonly>
-            </div>
-
-            <div class="row-4">
-              <label for="date_filed_create" class="form-label">Date Filed</label>
-                <input type="date" class="form-control" id="date_filed_create" readonly>
-            </div>
-
-            <div class="row-g-3">
-              <label for="concern_id_create" class="form-label">Concern Category</label>
-                <select class="form-select" id="concern_id_create" required>
-                  <option selected disabled value="">Select Concern Category</option>
-                </select>
-            </div>
-
-            <div class="row-md-4">
-              <label for="concern_details_create" class="form-label">Concern Details</label>
-              <textarea class="form-control" id="concern_details_create" rows="4" placeholder="Please tell us your issue..." required></textarea>
-            </div>
-
-            <div class="text-center">
-              <button class="btn btn-primary" type="submit">Submit Ticket</button>
-            </div>
-          </form>
-
-        </div>
-      </div>
-    </div>
-
-       
-  </div>
 
 
 </main>
