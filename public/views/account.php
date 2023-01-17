@@ -73,8 +73,8 @@
           <div class="tab-pane fade customer-payment" id="customer-payment">
             <div class="row">
               <div class="col-sm-12">
-                <div class="card overflow-auto">
-                  <div class="card-body">
+                <div class="card p-3">
+                  <div class="card-body p-2">
 
                     <ul class="nav nav-tabs d-flex" role="tablist">
                       <li class="nav-item flex-fill" role="presentation">
@@ -85,52 +85,60 @@
                       </li>
                     </ul>
 
-                    <!-- Tagged Tab -->
-                    <div class="tab-pane fade show active" id="tagged-payments" role="tabpanel" aria-labelledby="tagged-tab">
-                      <div class="row pt-3 p-3">
-                        <div class="col-sm-9"><h5 class="card-title">Payment History</h5></div>
-                        <div class="col-sm-3 text-center pt-2"><a href="#"><button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#upload-payment-modal">Upload Payment</button></a></div>
-                      </div>
-                      <table class="table table-borderless" id="customer-payment-tbl">
-                        <thead>
-                          <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Reference ID</th>
-                            <th scope="col">Amount Paid</th>
-                            <th scope="col">Payment Date</th>
-                            <th scope="col">Invoice ID</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">View</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                      </table>
-                    </div>
-                    <!-- End Tagged Tab -->
-
-                    <!-- Uploaded Payment Records -->
-                    <div class="tab-pane fade" id="uploaded-payments" role="tabpanel" aria-labelledby="uploaded-tab">
-                      <div class="row">
-                        <div class="col-md-9">
-                          <h5 class="card-title">Uploaded Payment Records</h5>
+                    <div class="tab-content">
+                      <!-- Tagged Tab -->
+                      <div class="tab-pane fade show active" id="tagged-payments" role="tabpanel" aria-labelledby="tagged-tab">
+                        <div class="row pt-3 p-3">
+                          <div class="col-sm-9"><h5 class="card-title">Payment History</h5></div>
+                          <div class="col-sm-3 text-center pt-2"><a href="#"><button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#upload-payment-modal">Upload Payment</button></a></div>
                         </div>
+                        <table class="table table-borderless" id="customer-payment-tbl">
+                          <thead>
+                            <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">Reference ID</th>
+                              <th scope="col">Amount Paid</th>
+                              <th scope="col">Payment Date</th>
+                              <th scope="col">Invoice ID</th>
+                              <th scope="col">Status</th>
+                              <th scope="col">View</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          </tbody>
+                        </table>
                       </div>
+                      <!-- End Tagged Tab -->
 
-                      <table class="table table-borderless" id="uploaded-payments-table">
-                        <thead>
-                          <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Account ID</th>
-                            <th scope="col">Date Uploaded</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Actions</th>
-                          </tr>
-                        </thead>
-                        <tbody></tbody>
-                      </table>
+                      <!-- Uploaded Payment Records -->
+                      <div class="tab-pane fade" id="uploaded-payments" role="tabpanel" aria-labelledby="uploaded-tab">
+                        <div class="row">
+                          <div class="col-md-9">
+                            <h5 class="card-title">Uploaded Payment Records</h5>
+                          </div>
+                        </div>
+
+                        <div>
+                          <select id="uploaded-payment-status-filter" class="form-select table-filter" style="display: inline; width: 160px; margin-left: 20px;">
+                            <option value="">Show All: Status</option>
+                          </select>
+                        </div>
+
+                        <table class="table table-borderless" id="uploaded-payment-tbl">
+                          <thead>
+                            <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">Account ID</th>
+                              <th scope="col">Date Uploaded</th>
+                              <th scope="col">Status</th>
+                              <th scope="col">Actions</th>
+                            </tr>
+                          </thead>
+                          <tbody></tbody>
+                        </table>
+                      </div>
+                      <!-- End Uploaded Payment Records -->
                     </div>
-                    <!-- End Uploaded Payment Records -->
 
                   </div>
                 </div>

@@ -1,6 +1,6 @@
 <?php
     // DB Params
-    $host = 'localhost:3307';
+    $host = 'localhost';
     $db_name = 'gstech_bms_db';
     $username = 'root';
     $password = '';
