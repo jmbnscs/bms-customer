@@ -73,29 +73,73 @@
           <div class="tab-pane fade customer-payment" id="customer-payment">
             <div class="row">
               <div class="col-sm-12">
-                <div class="card overflow-auto">
-                  <div class="card-body">
-                    <div>
-                      <div class="row pt-3 p-3">
-                        <div class="col-sm-9"><h5 class="card-title">Payment History</h5></div>
-                        <div class="col-sm-3 text-center pt-2"><a href="#"><button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#upload-payment-modal">Upload Payment</button></a></div>
+                <div class="card p-3">
+                  <div class="card-body p-2">
+
+                    <ul class="nav nav-tabs d-flex" role="tablist">
+                      <li class="nav-item flex-fill" role="presentation">
+                        <button class="nav-link w-100 active" id="tagged-tab" data-bs-toggle="tab" data-bs-target="#tagged-payments" type="button" role="tab" aria-controls="tagged" aria-selected="true">Tagged</button>
+                      </li>
+                      <li class="nav-item flex-fill" role="presentation">
+                        <button class="nav-link w-100" id="uploaded-tab" data-bs-toggle="tab" data-bs-target="#uploaded-payments" type="button" role="tab" aria-controls="uploaded" aria-selected="false">Uploaded Payments</button>
+                      </li>
+                    </ul>
+
+                    <div class="tab-content">
+                      <!-- Tagged Tab -->
+                      <div class="tab-pane fade show active" id="tagged-payments" role="tabpanel" aria-labelledby="tagged-tab">
+                        <div class="row pt-3 p-3">
+                          <div class="col-sm-9"><h5 class="card-title">Payment History</h5></div>
+                          <div class="col-sm-3 text-center pt-2"><a href="#"><button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#upload-payment-modal">Upload Payment</button></a></div>
+                        </div>
+                        <table class="table table-borderless" id="customer-payment-tbl">
+                          <thead>
+                            <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">Reference ID</th>
+                              <th scope="col">Amount Paid</th>
+                              <th scope="col">Payment Date</th>
+                              <th scope="col">Invoice ID</th>
+                              <th scope="col">Status</th>
+                              <th scope="col">View</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          </tbody>
+                        </table>
                       </div>
-                      <table class="table table-borderless" id="customer-payment-tbl">
-                        <thead>
-                          <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Reference ID</th>
-                            <th scope="col">Amount Paid</th>
-                            <th scope="col">Payment Date</th>
-                            <th scope="col">Invoice ID</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">View</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                      </table>
+                      <!-- End Tagged Tab -->
+
+                      <!-- Uploaded Payment Records -->
+                      <div class="tab-pane fade" id="uploaded-payments" role="tabpanel" aria-labelledby="uploaded-tab">
+                        <div class="row">
+                          <div class="col-md-9">
+                            <h5 class="card-title">Uploaded Payment Records</h5>
+                          </div>
+                        </div>
+
+                        <div>
+                          <select id="uploaded-payment-status-filter" class="form-select table-filter" style="display: inline; width: 160px; margin-left: 20px;">
+                            <option value="">Show All: Status</option>
+                          </select>
+                        </div>
+
+                        <table class="table table-borderless" id="uploaded-payment-tbl">
+                          <thead>
+                            <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">Account ID</th>
+                              <th scope="col">Date Uploaded</th>
+                              <th scope="col">Status</th>
+                              <th scope="col">Actions</th>
+                            </tr>
+                          </thead>
+                          <tbody></tbody>
+                        </table>
+                      </div>
+                      <!-- End Uploaded Payment Records -->
                     </div>
+
                   </div>
                 </div>
               </div>
@@ -301,6 +345,39 @@
         </div>
       </div>
 
+      <!-- View Uploaded Payment Modal -->
+      <form id="view-uploaded-data">
+        <div class="modal fade" id="view-uploaded-modal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
+              <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h5 class="modal-title"></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="modal-body">
+                  <!-- Card with an image on top -->
+                  <div class="card">
+                    <a href="" target="_blank" id="view_uploaded_image_new_tab">
+                      <img id="view_uploaded_image" class="img-fluid rounded-start mx-auto d-block" alt="..." data-action="zoom">
+                    </a>
+                  </div><!-- End Card with an image on top -->
+
+                </div>
+                <!-- End Modal Body -->
+
+                <!-- Modal Footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+        </div>
+      </form>
+      <!-- End Uploaded Payment Modal -->
 
     </div>
   </section> <!-- End of customer Account profile section-->
