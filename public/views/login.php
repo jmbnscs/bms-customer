@@ -17,7 +17,7 @@
 	 <img class="wave" src="../images/bg8.jpg">
 	 <div class="container">
 		 <div class="img">
-			 <img src="../images/gstech-logo-vector.png">
+			 <img src="../images/customer-logo.png">
 		 </div>
 		 <div class="login-content">
 			 <form>

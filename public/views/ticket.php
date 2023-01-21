@@ -110,7 +110,8 @@
               <div class="row mb-3">
                 <label for="concern_details" class="col-sm-4 col-form-label">Concern Details</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="concern_details" value="" readonly>
+                  <textarea type="text" class="form-control" id="concern_details" value="" readonly rows="3"></textarea>
+                  <!-- <input type="text" class="form-control" id="concern_details" value="" readonly> -->
                 </div>
               </div>
 
@@ -124,7 +125,8 @@
               <div class="row mb-3">
                 <label for="resolution_details" class="col-sm-4 col-form-label">Resolution Details</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="resolution_details" value="" readonly>
+                  <textarea type="text" class="form-control" id="resolution_details" value="" readonly rows="3"></textarea>
+                  <!-- <input type="text" class="form-control" id="resolution_details" value="" readonly> -->
                 </div>
               </div>
 

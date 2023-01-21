@@ -17,7 +17,7 @@
 	 <img class="wave" src="../images/bg8.jpg">
 	 <div class="container">
 		 <div class="img">
-			 <img src="../images/gstech-logo-vector.png">
+			 <img src="../images/customer-logo.png">
 		 </div>
 		 <div class="login-content">
 			 <form id="forgot-password">
@@ -29,7 +29,7 @@
 					 </div>
 					 <div class="div">
 						 <h5>Account ID</h5>
-						 <input type="text" class="form-control" name="account_id" id="account_id" required>
+						 <input type="number" class="form-control" name="account_id" id="account_id" required>
 					 </div>
 				 </div>
 				 <div class="input-div one">
