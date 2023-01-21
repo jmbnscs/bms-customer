@@ -3,13 +3,12 @@ const edit_account = document.getElementById('edit-account');
 
 // On Boot Load
 $(document).ready( () => {
+    displaySuccessMessage();
     displayDataOnTabs();
 
     if (pw_check == 0) {
         document.getElementById('account-tab').click();
     }
-
-    displaySuccessMessage();
 });
 
 async function displayDataOnTabs() {
@@ -35,21 +34,45 @@ async function displayDataOnTabs() {
     })
     
     $('#email').on('propertychange change keyup', (e) => {
-        if (new Date($('#email').val()) !== new Date(customer_data.email)) {
+        // if (new Date($('#email').val()) !== new Date(customer_data.email)) {
+        //     setUpConfirmPassword(false);
+        // }
+        if ($('#email').val() != customer_data.email) {
             setUpConfirmPassword(false);
+        }
+        else {
+            setUpConfirmPassword(true);
         }
     })
 
     $('#mobile-number').on('propertychange change keyup', (e) => {
-        if (new Date($('#mobile-number').val()) !== new Date(customer_data.mobile_number)) {
+        // if (new Date($('#mobile-number').val()) !== new Date(customer_data.mobile_number)) {
+        //     setUpConfirmPassword(false);
+        // }
+        if ($('#mobile-number').val() != customer_data.mobile_number) {
             setUpConfirmPassword(false);
         }
     })
+
+    // $('#customer-username').on('propertychange change keyup', (e) => {
+    //     // if (new Date($('#mobile-number').val()) !== new Date(customer_data.mobile_number)) {
+    //     //     setUpConfirmPassword(false);
+    //     // }
+    //     if ($('#customer-username').val() != account_data.customer_username) {
+    //         setUNUpdateConfirmPassword(false);
+    //     }
+    // })
+
 
     function setUpConfirmPassword(bool) {
         $('#confirm-password').attr('disabled', bool);
         $('#save-general-btn').attr('disabled', bool);
     }
+
+    // function setUNUpdateConfirmPassword(bool) {
+    //     $('#username-password').attr('disabled', bool);
+    //     $('#update-username-btn').attr('disabled', bool);
+    // }
 }
 
 async function updateGeneralTab() {
@@ -59,7 +82,7 @@ async function updateGeneralTab() {
     const mobile_number = $('#mobile-number').val();
     const confirm_password = $('#confirm-password').val();
 
-    var content;
+    let content;
 
     // Verify Password
     url = DIR_API + 'customer/verify_password.php';
@@ -97,11 +120,11 @@ async function updateGeneralTab() {
         toastr.error('Current Password do not match.');
     }
 
-    if(content) {
-        if (content.message = 'Customer Updated') {
-            localStorage.setItem('save_message', "Customer Updated Successfully.");
-            location.reload();
-        }
+    if(content.success) {
+        sessionStorage.setItem('save_message', "Customer Updated Successfully.");
+        setTimeout(function(){
+            window.location.reload();
+            }, 2000);
     }
 }
 
