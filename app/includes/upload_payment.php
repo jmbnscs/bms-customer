@@ -1,9 +1,9 @@
 <?php
     // DB Params
     $host = 'localhost';
-    $db_name = 'u575223139_gstech_bms_db';
-    $username = 'u575223139_gstechbms';
-    $password = 'Mq4I2+5[jM]';
+    $db_name = 'u575223139_pilot_bmsdb';
+    $username = 'u575223139_pilot';
+    $password = 'huydI:9J[';
     $conn;
 
     $conn = null;

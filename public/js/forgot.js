@@ -17,8 +17,8 @@ inputs.forEach(input => {
     input.addEventListener("blur", RemoveClass);
 });
 
-const DIR_API = location.protocol + '//' + location.host + '/gstech_api/api/';
-const DIR_APP_LOAD = location.protocol + '//' + location.host + '/bms-customer/app/includes/';
+const DIR_API = location.protocol + '//' + location.host + '/pilotapi/api/';
+const DIR_APP_LOAD = location.protocol + '//' + location.host + '/pilotcui/app/includes/';
 
 $(function () {
     $('form').on('submit', function (e) {

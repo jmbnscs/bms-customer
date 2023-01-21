@@ -18,7 +18,7 @@ inputs.forEach(input => {
 });
 
 // ------------------- BACKEND JS
-const DIR_API = location.protocol + '//' + location.host + '/gstech_api/api/';
+const DIR_API = location.protocol + '//' + location.host + '/pilotapi/api/';
 
 async function login() {
     const login_username = $('#customer_username').val();
