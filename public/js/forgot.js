@@ -44,11 +44,11 @@ $(function () {
                     data: $( this ).serialize(),
                     success : function (data) {
                         if (data == 'success') {
-                            // toastr.success('Email verification sent.');
-                            setTimeout (
-                                toastr.success('Email verification sent.'), 5000
+                            toastr.success('Email verification sent.');
+                            setTimeout ( () => {
+                                    window.location.replace('login');
+                                },5000
                             );
-                            window.location.replace('login');
                         }
                         else {
                             toastr.error('Some error has occured, please try again later.');

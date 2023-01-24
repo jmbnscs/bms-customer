@@ -1,0 +1,76 @@
+/* Inquire */
+.inquire-section {
+    height: 90vh;
+    width: 100%;
+    padding: 150px;
+  }
+  
+  .inquire-section h4 {
+    color: #012970;
+    font-size: 30px;
+  
+  }
+  
+  .inquire-map-link {
+    display: none;
+  }
+  
+  .inquire-icon {
+    color: #012970;
+    font-size: 25px;
+  }
+  
+  .inquire-form {
+    padding: 30px;
+  }
+  
+  .inquire-form label{
+    color: #012970;
+    font-weight: bolder;
+  }
+  
+  @media (min-width: 800px) {
+    body {
+      background: linear-gradient(-45deg, #C2E9FB,  #66A6FF, #C2E9FB, #D7FFFE);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+      height: 100vh;
+    }
+  
+    section, .hero {
+      background: none;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .inquire-section {
+      padding: 10px;
+    }
+  
+    .inquire-map {
+      display: none;
+    }
+  
+    .inquire-map-link {
+      display: block;
+    }
+  
+    .inquire-form {
+      padding: none;
+    }
+  
+    body {
+      background: linear-gradient(-45deg, #C2E9FB,  #66A6FF, #C2E9FB, #D7FFFE);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+      height: 100vh;
+    }
+  
+    section, .hero {
+      background: none;
+    }
+  
+    /* .icon-container {
+      width: 100vh;
+    } */
+  }
