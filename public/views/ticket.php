@@ -110,7 +110,7 @@
               <div class="row mb-3">
                 <label for="concern_details" class="col-sm-4 col-form-label">Concern Details</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="concern_details" value="" readonly>
+                  <textarea type="text" id="concern_details" rows="4" value="" readonly></textarea>
                 </div>
               </div>
 
@@ -124,7 +124,7 @@
               <div class="row mb-3">
                 <label for="resolution_details" class="col-sm-4 col-form-label">Resolution Details</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="resolution_details" value="" readonly>
+                  <textarea type="text" id="resolution_details" rows="4" value="" readonly></textarea>
                 </div>
               </div>
 
