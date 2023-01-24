@@ -27,7 +27,6 @@
 	 <div class="container">
 		 <div class="img">
 			 <img src="../images/customer-logo.png">
-			 <img src="../images/customer-logo.png">
 		 </div>
 		 <div class="login-content">
 			 <form id="forgot-password">
