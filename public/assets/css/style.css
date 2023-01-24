@@ -496,6 +496,7 @@ section {
   .hero {
     height: auto;
     padding: 120px 0 60px 0;
+    /* padding: 0; */
   }
 
   .hero .hero-img {
@@ -682,6 +683,8 @@ section {
 /*--------------------------------------------------------------
 # View Profile Page
 --------------------------------------------------------------*/
+
+
 .view-profile .box {
   padding: 40px 20px;
   background: #fff;
@@ -776,6 +779,17 @@ section {
 --------------------------------------------------------------*/
 .tkt-tbl {
   min-height: 550px;
+}
+
+.create-ticket-container label,
+.ticket-modal-container label{
+  color: #012970;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background-color: #4154f1 !important;
+  border-color: #012970;
 }
 
 /*--------------------------------------------------------------

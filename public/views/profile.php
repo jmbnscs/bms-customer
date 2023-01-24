@@ -29,110 +29,78 @@
         <p>Check your Information</p>
       </header>
 
-      <div class="row" data-aos="fade-left">
+      <div class="row" data-aos="fade-left" class="profile-card-container">
       
-      <!-- Customer Information -->
-      <div
-        class="col-lg-3 col-md-6"
-        data-aos="zoom-in"
-        data-aos-delay="100"
-      >
-        <div class="box">
-          <h3 style="color: #07d5c0">Basic Information</h3>
-          <div class="profile">GSTech ID: <span id="gstech_id"></span></div>
-          <img
-            src="../assets/img/pricing-free.png"
-            class="img-fluid"
-            alt=""
-          />
+        <!-- Customer Information -->
+        <div class="col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+          <div class="box">
+            <h3 style="color: #07d5c0">Basic Information</h3>
+            <div class="profile">GSTech ID: <span id="gstech_id"></span></div>
+            <img src="../assets/img/pricing-free.png" class="img-fluid" alt=""/>
+            
+            <ul>
+              <li>Full Name: <span id="full_name"></span></li>
+              <li>Email: <span id="email"></span></li>
+              <li>Mobile Number: <span id="mobile_number"></span></li>
+              <li>Birthday: <span id="birthdate"></span></li>
+              <li>Billing Address: <span id="billing_address"></span></li>
+            </ul>
           
-          <ul>
-            <li>Full Name: <span id="full_name"></span></li>
-            <li>Email: <span id="email"></span></li>
-            <li>Mobile Number: <span id="mobile_number"></span></li>
-            <li>Birthday: <span id="birthdate"></span></li>
-            <li>Billing Address: <span id="billing_address"></span></li>
-          </ul>
+          </div>
+        </div><!-- End Customer Information -->
+
+        <!-- Account Information -->
+        <div class="col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+          <div class="box">
+            <h3 style="color: #65c600">Account Information</h3>
+            <div class="profile">Account ID: <span id="account_id"></span></div>
+            <img src="../assets/img/account.png" class="img-fluid" alt="" />
+          
+            <ul>
+              <li>Start Date: <span id="start_date"></span></li>
+              <li>Lockin End Date: <span id="lockin_end_date"></span></li>
+              <li>Billing Day: <span id="billing_day"></span></li>
+              <li>Subscription Plan: <span id="plan_name"></span></li>
+              <li>Connection Type: <span id="connection_type"></span></li>
+              <li>Area: <span id="area_name"></span></li>
+              <li>Bill Count: <span id="bill_count"></span></li>
+            </ul>
+            
+          </div>
+        </div><!-- End Account Information -->
+
+        <!-- Installation Information -->
+        <div class="col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+          <div class="box">
+            <h3 style="color: #ff901c">Installation Information</h3>
+            <div class="profile">Status:  <span id="install_status"></span></div>
+            <img src="../assets/img/setting.png" class="img-fluid" alt=""/>
+            
+            <ul>
+              <li>Installation Type: <span id="installation_type"></span></li>
+              <li>Installment: <span id="installment"></span></li>
+              <li>Total Charge: <span id="installation_total_charge"></span></li>
+              <li>Balance: <span id="installation_balance"></span></li>
+            </ul>
+            
+          </div>
+        </div><!-- End Installation Information -->
+
+        <!-- Ratings Information -->
+        <div class="col-lg-3" data-aos="zoom-in" data-aos-delay="400">
+          <div class="box">
+            <h3 style="color: #ff0071">Ratings Information</h3>
+            <div class="profile">Payment Rating:  <span id="avg_rating"></span></div>
+            <img src="../assets/img/rating.jpg" class="img-fluid" alt=""/>
+            <ul>
+              <li>Bill Count: <span id="rating_base"></span></li>
+              <li>Overdue Payments: <span id="delinquent_ratings"></span></li>
+              <li>Status: <span id="rating_status"></span></li>
         
-        </div>
-      </div><!-- End Customer Information -->
-
-      <!-- Account Information -->
-      <div
-        class="col-lg-3 col-md-6"
-        data-aos="zoom-in"
-        data-aos-delay="200"
-      >
-        <div class="box">
-          <h3 style="color: #65c600">Account Information</h3>
-          <div class="profile">Account ID: <span id="account_id"></span></div>
-          <img
-            src="../assets/img/account.png"
-            class="img-fluid"
-            alt=""
-          />
-        
-          <ul>
-            <li>Start Date: <span id="start_date"></span></li>
-            <li>Lockin End Date: <span id="lockin_end_date"></span></li>
-            <li>Billing Day: <span id="billing_day"></span></li>
-            <li>Subscription Plan: <span id="plan_name"></span></li>
-            <li>Connection Type: <span id="connection_type"></span></li>
-            <li>Area: <span id="area_name"></span></li>
-            <li>Bill Count: <span id="bill_count"></span></li>
-          </ul>
-          
-        </div>
-      </div><!-- End Account Information -->
-
-      <!-- Installation Information -->
-      <div
-        class="col-lg-3 col-md-6"
-        data-aos="zoom-in"
-        data-aos-delay="300"
-      >
-        <div class="box">
-          <h3 style="color: #ff901c">Installation Information</h3>
-          <div class="profile">Status:  <span id="install_status"></span></div>
-          <img
-            src="../assets/img/setting.png"
-            class="img-fluid"
-            alt=""
-          />
-          
-          <ul>
-            <li>Installation Type: <span id="installation_type"></span></li>
-            <li>Installment: <span id="installment"></span></li>
-            <li>Total Charge: <span id="installation_total_charge"></span></li>
-            <li>Balance: <span id="installation_balance"></span></li>
-          </ul>
-          
-        </div>
-      </div><!-- End Installation Information -->
-
-      <!-- Ratings Information -->
-      <div
-        class="col-lg-3 col-md-6"
-        data-aos="zoom-in"
-        data-aos-delay="400"
-      >
-        <div class="box">
-          <h3 style="color: #ff0071">Ratings Information</h3>
-          <div class="profile">Payment Rating:  <span id="avg_rating"></span></div>
-          <img
-            src="../assets/img/rating.jpg"
-            class="img-fluid"
-            alt=""
-          />
-          <ul>
-            <li>Bill Count: <span id="rating_base"></span></li>
-            <li>Overdue Payments: <span id="delinquent_ratings"></span></li>
-            <li>Status: <span id="rating_status"></span></li>
-      
-          </ul>
-          
-        </div>
-      </div><!-- End Ratings Information -->
+            </ul>
+            
+          </div>
+        </div><!-- End Ratings Information -->
     </div>
   </div>
 </section>
