@@ -126,7 +126,7 @@ form {
 }
 
 .input-div.focus>div>h5 {
-  top: -5px;
+  top: -10px;
   font-size: 15px;
 }
 
@@ -228,4 +228,32 @@ a:hover {
   .login-content {
     justify-content: center;
   }
+}
+
+.btn-get-started {
+  margin-top: 30px;
+  line-height: 0;
+  padding: 15px 40px;
+  border-radius: 4px;
+  transition: 0.5s;
+  color: #4154f1;
+  background: #fff;
+  box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
+}
+
+.btn-get-started span {
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.btn-get-started i {
+  margin-left: 5px;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.btn-get-started:hover i {
+  transform: translateX(5px);
 }

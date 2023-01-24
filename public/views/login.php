@@ -15,6 +15,15 @@
 <!-- Login start -->
 <body>
 	 <img class="wave" src="../images/bg8.jpg">
+	 <div data-aos="fade-up" data-aos-delay="800">
+		<div class="text-center text-lg-start">
+		<a href="home" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+			<span>Back to Home</span>
+			<i class="bi bi-arrow-right"></i>
+		</a>
+		</div>
+	</div>
+
 	 <div class="container">
 		 <div class="img">
 			 <img src="../images/customer-logo.png">
@@ -29,7 +38,7 @@
 					 </div>
 					 <div class="div">
 						 <h5>Username / Account ID</h5>
-						 <input type="text" class="form-control" name="customer_username" id="customer_username" autocomplete="on" required>
+						 <input type="text" class="form-control shadow-none" name="customer_username" id="customer_username" autocomplete="on" required>
 					 </div>
 				 </div>
 				 <div class="input-div pass">
@@ -38,7 +47,7 @@
 					</div>
 					<div class="div">
 						<h5>Password</h5>
-						<input type="password" class="form-control" name="customer_password" id="customer_password" autocomplete="on" required>
+						<input type="password" class="form-control shadow-none" name="customer_password" id="customer_password" autocomplete="on" required>
 					</div>
 				</div>
 				<a href="forgot.php" target="_blank">Forgot Password?</a>
