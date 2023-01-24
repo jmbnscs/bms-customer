@@ -15,9 +15,18 @@
 <!-- Login start -->
 <body>
 	 <img class="wave" src="../images/bg8.jpg">
+	 <div data-aos="fade-up" data-aos-delay="800">
+		<div class="text-center text-lg-start">
+		<a href="home" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+			<span>Back to Home</span>
+			<i class="bi bi-arrow-right"></i>
+		</a>
+		</div>
+	 </div>
+
 	 <div class="container">
 		 <div class="img">
-			 <img src="../images/gstech-logo-vector.png">
+			 <img src="../images/customer-logo.png">
 		 </div>
 		 <div class="login-content">
 			 <form id="forgot-password">
@@ -29,7 +38,7 @@
 					 </div>
 					 <div class="div">
 						 <h5>Account ID</h5>
-						 <input type="text" class="form-control" name="account_id" id="account_id" required>
+						 <input type="text" class="form-control shadow-none" name="account_id" id="account_id" required>
 					 </div>
 				 </div>
 				 <div class="input-div one">
@@ -38,7 +47,7 @@
 					 </div>
 					 <div class="div">
 						 <h5>Email</h5>
-						 <input type="email" class="form-control" name="email" id="email" required>
+						 <input type="email" class="form-control shadow-none" name="email" id="email" required>
 					 </div>
 				 </div>
 				<input type="submit" class="btn" id ="submit" value="Send verification code">

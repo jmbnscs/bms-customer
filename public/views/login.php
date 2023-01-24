@@ -22,7 +22,7 @@
 			<i class="bi bi-arrow-right"></i>
 		</a>
 		</div>
-	</div>
+	 </div>
 
 	 <div class="container">
 		 <div class="img">
@@ -50,7 +50,7 @@
 						<input type="password" class="form-control shadow-none" name="customer_password" id="customer_password" autocomplete="on" required>
 					</div>
 				</div>
-				<a href="forgot.php" target="_blank">Forgot Password?</a>
+				<a href="forgot">Forgot Password?</a>
 				<input type="submit" class="btn" id ="submit" value="Login">
 			 </form>
 		 </div>
