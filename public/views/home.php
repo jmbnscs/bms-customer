@@ -146,22 +146,22 @@
               <h5 class="card-title text-center">Contact Form</h5>
               <div class="inquire-form">
                 <div class="row">
-                  <label for="inquire_name" class="form-label">Your Name</label>
+                  <label for="inquire_name" class="form-label">Your Name:</label>
                   <input type="text" class="form-control" id="inquire_name" name="inquire_name" required>
                 </div>
 
                 <div class="row pt-3">
-                  <label for="inquire_email" class="form-label">Your Email</label>
+                  <label for="inquire_email" class="form-label">Your Email:</label>
                   <input type="text" class="form-control" id="inquire_email" name="inquire_email" required>
                 </div>
 
                 <div class="row pt-3">
-                  <label for="inquire_subject" class="form-label">Subject</label>
+                  <label for="inquire_subject" class="form-label">Subject:</label>
                   <input type="text" class="form-control" id="inquire_subject" name="inquire_subject" required>
                 </div>
 
                 <div class="row pt-3">
-                  <label for="inquire_message" class="form-label">Your Message</label>
+                  <label for="inquire_message" class="form-label">Your Message:</label>
                   <textarea type="text" class="form-control" id="inquire_message" name="inquire_message" required></textarea>
                 </div>
 
