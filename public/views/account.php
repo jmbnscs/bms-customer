@@ -1,8 +1,8 @@
 <?php include '../models/header.html'; include '../../app/includes/upload_payment.php'?>
 
 <!-- Customer Account Section -->
-<main id="main" class=" Account"> <!-- NOTE: overflow-scroll class for the datatables -->
-  <section>
+<main id="main" class="Account"> <!-- NOTE: overflow-scroll class for the datatables -->
+  <section class="hero d-flex align-items-center">
     <div class="container" data-aos="fade-up">
       <div class="row">
         <div class="adjust-top col-xl-12">
@@ -40,7 +40,7 @@
           <div class="tab-pane fade show active customer-invoice" id="customer-invoice">
             <div class="row">
               <div class="col-sm-12">
-                <div class="card overflow-auto">
+                <div class="card overflow-auto acct-tbl">
                   <div class="card-body">
                     <div>
                       <h5 class="card-title">Billing History</h5>
@@ -73,7 +73,7 @@
           <div class="tab-pane fade customer-payment" id="customer-payment">
             <div class="row">
               <div class="col-sm-12">
-                <div class="card p-3">
+                <div class="card p-3 acct-tbl">
                   <div class="card-body p-2">
 
                     <ul class="nav nav-tabs d-flex" role="tablist">
@@ -89,8 +89,13 @@
                       <!-- Tagged Tab -->
                       <div class="tab-pane fade show active" id="tagged-payments" role="tabpanel" aria-labelledby="tagged-tab">
                         <div class="row pt-3 p-3">
-                          <div class="col-sm-9"><h5 class="card-title">Payment History</h5></div>
-                          <div class="col-sm-3 text-center pt-2"><a href="#"><button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#upload-payment-modal">Upload Payment</button></a></div>
+                          <div class="col-sm-6"><h5 class="card-title">Payment History</h5></div>
+                          <div class="col-sm-3 text-center pt-2">
+                            <a href="#"><button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#upload-payment-modal">Upload Payment</button></a>
+                          </div>
+                          <div class="col-sm-3 text-center pt-2">
+                            <a href="#"><button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#view-qr-modal">View GCash QR</button></a>
+                          </div>
                         </div>
                         <table class="table table-borderless" id="customer-payment-tbl">
                           <thead>
@@ -101,7 +106,6 @@
                               <th scope="col">Payment Date</th>
                               <th scope="col">Invoice ID</th>
                               <th scope="col">Status</th>
-                              <th scope="col">View</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -119,7 +123,7 @@
                         </div>
 
                         <div>
-                          <select id="uploaded-payment-status-filter" class="form-select table-filter" style="display: inline; width: 160px; margin-left: 20px;">
+                          <select id="uploaded-payment-status-filter" class="form-select table-filter" style="display: inline; width: 200px; margin-left: 20px;">
                             <option value="">Show All: Status</option>
                           </select>
                         </div>
@@ -152,20 +156,19 @@
           <div class="tab-pane fade customer-prorate" id="customer-prorate">
             <div class="row">
               <div class="col-sm-12">
-                <div class="card overflow-auto">
+                <div class="card overflow-auto acct-tbl">
                   <div class="card-body">
                     <div>
-                      <h5 class="card-title">Prorates History</h5>
+                      <h5 class="card-title">Prorates History <i class="bi bi-info-circle ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Prorates are your discounts given by GSTech for unexpected network interruptions."></i></h5>
                       <table class="table table-borderless" id="customer-prorate-tbl">
                         <thead>
                           <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Prorate ID</th>
+                            <th scope="col">Invoice ID</th>
                             <th scope="col">Duration</th>
                             <th scope="col">Prorate Discount</th>
                             <th scope="col">Ticket #</th>
                             <th scope="col">Status</th>
-                            <th scope="col">View</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -179,66 +182,6 @@
           </div>
         </div><!-- End Customer Prorate History -->
 
-        </div>
-      </div>
-
-      <!-- Payment Record Modal -->
-      <div class="modal fade" id="view-payment" tabindex="-1">
-        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-m">
-          <div class="modal-content">
-
-            <!-- Modal Header -->
-            <div class="modal-header">
-              <h5 class="modal-title"></h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-
-            <!-- Modal Body -->
-            <div class="modal-body">
-              <div class="row mb-3">
-                <label for="payment_reference_id" class="col-sm-4 col-form-label">Reference ID</label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" id="payment_reference_id" value="" readonly>
-                </div>
-              </div>
-
-              <div class="row mb-3">
-                <label for="amount_paid" class="col-sm-4 col-form-label">Amount Paid</label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" id="amount_paid" value="" readonly>
-                </div>
-              </div>
-
-              <div class="row mb-3">
-                <label for="payment_date" class="col-sm-4 col-form-label">Payment Date</label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" id="payment_date" value="" readonly>
-                </div>
-              </div>
-
-              <div class="row mb-3">
-                <label for="invoice_id" class="col-sm-4 col-form-label" id="invoice_id_lbl">Invoice ID</label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" id="invoice_id" value="" readonly>
-                </div>
-              </div>
-
-              <div class="row mb-3">
-                <label for="tagged" class="col-sm-4 col-form-label">Status</label>
-                <div class="col-sm-3">
-                  <input type="text" class="form-control text-center " id="tagged" value="" readonly>
-                </div>
-              </div>
-
-            </div>
-            <!-- End Modal Body -->
-
-            <!-- Modal Footer -->
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-
-          </div>
         </div>
       </div>
 
@@ -285,66 +228,6 @@
         </div>
       </form>
       
-
-      <!-- Prorate Record Modal -->
-      <div class="modal fade" id="view-prorate" tabindex="-1">
-        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-m">
-          <div class="modal-content">
-
-            <!-- Modal Header -->
-            <div class="modal-header">
-              <h5 class="modal-title"></h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-
-            <!-- Modal Body -->
-            <div class="modal-body">
-              <div class="row mb-3">
-                <label for="prorate_id" class="col-sm-4 col-form-label">Prorate ID</label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" id="prorate_id" value="" readonly>
-                </div>
-              </div>
-
-              <div class="row mb-3">
-                <label for="duration" class="col-sm-4 col-form-label">Duration</label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" id="duration" value="" readonly>
-                </div>
-              </div>
-
-              <div class="row mb-3">
-                <label for="prorate_charge" class="col-sm-4 col-form-label">Prorate Discount</label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" id="prorate_charge" value="" readonly>
-                </div>
-              </div>
-
-              <div class="row mb-3">
-                <label for="invoice_id_pr" class="col-sm-4 col-form-label">Invoice ID</label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" id="invoice_id_pr" value="" readonly>
-                </div>
-              </div>
-
-              <div class="row mb-3">
-                <label for="prorate_status" class="col-sm-4 col-form-label">Status</label>
-                <div class="col-sm-4">
-                  <input type="text" class="form-control text-center " id="prorate_status" value="" readonly>
-                </div>
-              </div>
-
-            </div>
-            <!-- End Modal Body -->
-
-            <!-- Modal Footer -->
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <!-- View Uploaded Payment Modal -->
       <form id="view-uploaded-data">
         <div class="modal fade" id="view-uploaded-modal" tabindex="-1">
@@ -378,6 +261,48 @@
         </div>
       </form>
       <!-- End Uploaded Payment Modal -->
+
+      <!-- View GCash QR Modal -->
+      <div class="modal fade" id="view-qr-modal" tabindex="-1">
+          <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h5 class="modal-title">Pay your bill through GCash</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+
+              <!-- Modal Body -->
+              <div class="modal-body">
+                <!-- Card with an image on top -->
+                <div class="card">
+                  <img src="../images/gstech-qr.jpg" alt="GSTech QR Code" class="img-fluid rounded-start mx-auto d-block" data-action="zoom">
+                  <!-- <a href="" target="_blank" id="view_uploaded_image_new_tab" >
+                    <img id="view_uploaded_image" class="img-fluid rounded-start mx-auto d-block" alt="..." data-action="zoom">
+                  </a> -->
+                </div><!-- End Card with an image on top -->
+                <ol>
+                  <li>Scan QR Code on your GCash App.</li>
+                  <li>Enter amount to be paid.</li>
+                  <li>Input your Account ID on the message box.</li>
+                  <li>Click Next and Press Send.</li>
+                  <li>Download the receipt.</li>
+                  <li>Click the Upload Payment button on the payment history.</li>
+                  <li>Choose and upload your receipt.</li>
+                  <li>Wait for the notification that your payment is approved.</li>
+                </ol>
+              </div>
+              <!-- End Modal Body -->
+
+              <!-- Modal Footer -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+      </div>
+      <!-- End GCash QR Modal -->
 
     </div>
   </section> <!-- End of customer Account profile section-->

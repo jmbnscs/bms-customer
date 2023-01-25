@@ -35,7 +35,7 @@
         <div class="col-lg-3" data-aos="zoom-in" data-aos-delay="100">
           <div class="box">
             <h3 style="color: #07d5c0">Basic Information</h3>
-            <div class="profile">GSTech ID: <span id="gstech_id"></span></div>
+            <div class="profile-details">GSTech ID: <span id="gstech_id"></span></div>
             <img src="../assets/img/pricing-free.png" class="img-fluid" alt=""/>
             
             <ul>
@@ -53,7 +53,7 @@
         <div class="col-lg-3" data-aos="zoom-in" data-aos-delay="200">
           <div class="box">
             <h3 style="color: #65c600">Account Information</h3>
-            <div class="profile">Account ID: <span id="account_id"></span></div>
+            <div class="profile-details">Account ID: <span id="account_id"></span></div>
             <img src="../assets/img/account.png" class="img-fluid" alt="" />
           
             <ul>
@@ -73,7 +73,7 @@
         <div class="col-lg-3" data-aos="zoom-in" data-aos-delay="300">
           <div class="box">
             <h3 style="color: #ff901c">Installation Information</h3>
-            <div class="profile">Status:  <span id="install_status"></span></div>
+            <div class="profile-details">Status:  <span id="install_status"></span></div>
             <img src="../assets/img/setting.png" class="img-fluid" alt=""/>
             
             <ul>
@@ -90,7 +90,7 @@
         <div class="col-lg-3" data-aos="zoom-in" data-aos-delay="400">
           <div class="box">
             <h3 style="color: #ff0071">Ratings Information</h3>
-            <div class="profile">Payment Rating:  <span id="avg_rating"></span></div>
+            <div class="profile-details">Payment Rating:  <span id="avg_rating"></span></div>
             <img src="../assets/img/rating.jpg" class="img-fluid" alt=""/>
             <ul>
               <li>Bill Count: <span id="rating_base"></span></li>

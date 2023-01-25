@@ -15,6 +15,7 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: #444444;
+  background-color: #f9fafe;
 }
 
 a {
@@ -118,7 +119,7 @@ h6 {
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
 --------------------------------------------------------------*/
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 990px) {
   [data-aos-delay] {
     transition-delay: 0 !important;
   }
@@ -164,23 +165,6 @@ h6 {
   text-align: center;
 }
 
-.profile {
-  min-width: 240px;
-  padding-bottom: 0;
-  align-items: center;
-
-}
-
-.profile .dropdown-header h6 {
-  font-size: 18px;
-  margin-bottom: 0;
-  font-weight: 600;
-  color: #444444;
-}
-
-.profile .dropdown-header span {
-  font-size: 14px;
-}
 
 .navbar li {
   position: relative;
@@ -367,6 +351,23 @@ h6 {
   display: block;
 }
 
+.profile {
+  min-width: 240px;
+  padding-bottom: 0;
+  align-items: center;
+}
+
+.profile .dropdown-header h6 {
+  font-size: 18px;
+  margin-bottom: 0;
+  font-weight: 600;
+  color: #444444;
+}
+
+.profile .dropdown-header span {
+  font-size: 14px;
+}
+
 /*--------------------------------------------------------------
 # Sections
 --------------------------------------------------------------*/
@@ -407,7 +408,7 @@ section {
   color: #012970;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 990px) {
   .section-header p {
     font-size: 28px;
     line-height: 32px;
@@ -509,7 +510,7 @@ section {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 990px) {
   .hero {
     text-align: center;
   }
@@ -720,7 +721,7 @@ section {
   margin-bottom: 15px;
 }
 
-.view-profile .profile {
+.view-profile .profile-details {
   font-size: 20px;
   color: #444444;
   font-weight: 600;
@@ -757,6 +758,11 @@ section {
   background-color: #f9fafe;
 }
 
+.customer-page label{
+  color: #012970;
+  font-weight: 600;
+}
+
 .profile-welcome-text {
   letter-spacing: 5px;
 }
@@ -768,16 +774,25 @@ section {
   color: #444444;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 990px) {
   .view-profile .box {
     height: fit-content;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .view-profile .profile-details {
+    font-size: 20px;
+    font-weight: 400;
   }
 }
 
 /*--------------------------------------------------------------
 # Ticket Page
 --------------------------------------------------------------*/
-.tkt-tbl {
+.tkt-tbl,
+.acct-tbl {
   min-height: 550px;
 }
 
@@ -795,7 +810,7 @@ section {
 /*--------------------------------------------------------------
 # DataTable
 --------------------------------------------------------------*/
-@media (max-width: 768px) {
+@media (max-width: 990px) {
   table {
     border: 0;
   }
