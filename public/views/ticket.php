@@ -3,7 +3,7 @@
 <!-- Customer Ticket History Section -->
 <main id="main" class="customer-page">
 
-  <section class="hero d-flex align-items-center">
+  <section class="content-bg d-flex align-items-center">
     <div class="container" data-aos="fade-up">
       <div class="row">
         <div class="account-ticket col-xl-12">

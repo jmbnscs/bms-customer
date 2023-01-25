@@ -2,9 +2,9 @@
   include '../models/header.html';
 //  include '../models/navbar.html'; ?>
 
-<section class="customer-page hero d-flex align-items-center">
-  <div class="container adjust-top">
-        <div class="row justify-content-md-center">
+<section class="customer-page content-bg align-items-center">
+  <div class="container adjust-top" data-aos="fade-up">
+        <div class="row justify-content-center">
           <!-- Account Settings -->
           <div class="card col-md-8">
             <div class="card-body pt-4">
