@@ -1,8 +1,8 @@
 <?php include '../models/header.html'; include '../../app/includes/upload_payment.php'?>
 
 <!-- Customer Account Section -->
-<main id="main" class=" Account"> <!-- NOTE: overflow-scroll class for the datatables -->
-  <section>
+<main id="main" class="Account"> <!-- NOTE: overflow-scroll class for the datatables -->
+  <section class="hero d-flex align-items-center">
     <div class="container" data-aos="fade-up">
       <div class="row">
         <div class="adjust-top col-xl-12">
@@ -40,7 +40,7 @@
           <div class="tab-pane fade show active customer-invoice" id="customer-invoice">
             <div class="row">
               <div class="col-sm-12">
-                <div class="card overflow-auto">
+                <div class="card overflow-auto acct-tbl">
                   <div class="card-body">
                     <div>
                       <h5 class="card-title">Billing History</h5>
@@ -73,7 +73,7 @@
           <div class="tab-pane fade customer-payment" id="customer-payment">
             <div class="row">
               <div class="col-sm-12">
-                <div class="card p-3">
+                <div class="card p-3 acct-tbl">
                   <div class="card-body p-2">
 
                     <ul class="nav nav-tabs d-flex" role="tablist">
@@ -123,7 +123,7 @@
                         </div>
 
                         <div>
-                          <select id="uploaded-payment-status-filter" class="form-select table-filter" style="display: inline; width: 160px; margin-left: 20px;">
+                          <select id="uploaded-payment-status-filter" class="form-select table-filter" style="display: inline; width: 200px; margin-left: 20px;">
                             <option value="">Show All: Status</option>
                           </select>
                         </div>
@@ -156,7 +156,7 @@
           <div class="tab-pane fade customer-prorate" id="customer-prorate">
             <div class="row">
               <div class="col-sm-12">
-                <div class="card overflow-auto">
+                <div class="card overflow-auto acct-tbl">
                   <div class="card-body">
                     <div>
                       <h5 class="card-title">Prorates History <i class="bi bi-info-circle ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Prorates are your discounts given by GSTech for unexpected network interruptions."></i></h5>

@@ -2,7 +2,7 @@
   include '../models/header.html';
 //  include '../models/navbar.html'; ?>
 
-<section class="customer-page">
+<section class="customer-page hero d-flex align-items-center">
   <div class="container adjust-top">
         <div class="row justify-content-md-center">
           <!-- Account Settings -->
@@ -11,11 +11,11 @@
 
               <!-- Account Settings Tab -->
               <div class="d-flex align-items-start ">
-                <div class="nav nav-tabs nav-tabs-bordered" role="tablist">
-                  <li class="nav-item flex-fill" role="presentation">
+                <div class="nav nav-tabs nav-tabs-bordered d-flex">
+                  <li class="nav-item flex-fill">
                     <button class="nav-link active w-100" id="general-tab" data-bs-toggle="tab" data-bs-target="#settings-general" type="button" role="tab" aria-controls="settings-general" aria-selected="true">General</button>
                   </li>
-                  <li class="nav-item flex-fill" role="presentation">
+                  <li class="nav-item flex-fill">
                     <button class="nav-link w-100" id="account-tab" data-bs-toggle="tab" data-bs-target="#settings-account" type="button" role="tab" aria-controls="settings-account" aria-selected="false">Account</button>
                   </li>
                 </div>
@@ -93,9 +93,12 @@
                         </div>
                       </div>
 
-                      <div class="text-center">
-                        <button type="submit" class="btn btn-primary w-25" id="save-general-btn" disabled>Save Changes</button>
+                      <div class="row justify-content-center">
+                        <div class="text-center col-lg-12">
+                          <button type="submit" class="btn btn-primary" id="save-general-btn" disabled>Save Changes</button>
+                        </div>
                       </div>
+                      
                     </form><!-- End General Edit Form -->
                   </div>
 
@@ -139,8 +142,10 @@
                         </div>
                       </div>
 
-                      <div class="text-center pt-2">
-                        <button type="submit" class="btn btn-primary w-25" id="update-username-btn">Change Password</button>
+                      <div class="row justify-content-center">
+                        <div class="text-center col-lg-12 pt-2">
+                          <button type="submit" class="btn btn-primary" id="update-username-btn">Change Password</button>
+                        </div>
                       </div>
                        
                     </form><!-- End Account Edit Form -->
