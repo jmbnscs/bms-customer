@@ -169,6 +169,7 @@ async function setProrateHistory() {
         }
         else {
             tag = 'bg-danger';
+            content[i].invoice_id = 'N/A';
         }
         t.row.add($(`
             <tr>
