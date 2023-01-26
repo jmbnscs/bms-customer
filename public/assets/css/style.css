@@ -16,6 +16,9 @@ body {
   font-family: "Open Sans", sans-serif;
   color: #444444;
   background-color: #f9fafe;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 a {
@@ -77,11 +80,11 @@ h6 {
   transition: all 0.3s;
 }
 
-@media (max-width: 1199px) {
+/* @media (max-width: 1199px) {
   #main {
     padding: 20px;
   }
-}
+} */
 
 /*--------------------------------------------------------------
 # Back to top button
@@ -377,12 +380,14 @@ h6 {
   background-size: cover;
 }
 
+
 section {
-  padding: 60px 0;
+  /* padding: 60px 0; */
   display: block;
-  /* height:100vh; */
+  min-height: 100vh;
   width: 100%;
   box-sizing:border-box;
+  padding-top: 60px;
 }
 
 .section-header {
@@ -428,6 +433,14 @@ section {
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
 	height: 100vh;
+}
+
+.content-bg {
+  background: linear-gradient(-45deg, #C2E9FB,  #66A6FF, #C2E9FB, #D7FFFE);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+  /* height: 100%; */
+  width: 100%;
 }
 
 @keyframes gradient {
@@ -649,13 +662,13 @@ section {
   border-bottom: 5px solid #4154f1;
 }
 
-.settings {
+/* .settings {
   border-left: 2px solid #4154f1;
 }
 
 .settings {
   border-left: 2px solid #ebeef4;
-}
+} */
 
 .settings .nav-link {
   margin-bottom: 10px;
@@ -676,9 +689,9 @@ section {
   border-left: 3px solid #4154f1;
 }
 
-.form-setting {
+/* .form-setting {
   margin-left: 3rem
-}
+} */
 
 
 /*--------------------------------------------------------------
@@ -793,7 +806,9 @@ section {
 --------------------------------------------------------------*/
 .tkt-tbl,
 .acct-tbl {
-  min-height: 550px;
+  min-height: 460px;
+  padding: 10px;
+  padding-top: 20px;
 }
 
 .create-ticket-container label,
@@ -807,9 +822,19 @@ section {
   border-color: #012970;
 }
 
+.tkt-container,
+.acct-container {
+  margin: auto;
+  padding-top: 100px;
+}
+
 /*--------------------------------------------------------------
 # DataTable
 --------------------------------------------------------------*/
+.dataTables_wrapper {
+  min-height: 300px;
+}
+
 @media (max-width: 990px) {
   table {
     border: 0;
