@@ -3,8 +3,8 @@
 <!-- Customer Ticket History Section -->
 <main id="main" class="customer-page">
 
-  <section class="content-bg d-flex align-items-center">
-    <div class="container" data-aos="fade-up">
+  <section class="content-bg align-items-center tkt-container">
+    <div class="container " data-aos="fade-up">
       <div class="row">
         <div class="account-ticket col-xl-12">
           <div class="tkt-tbl card">
@@ -36,11 +36,11 @@
   </section> <!-- End of Customer Ticket History Section-->
 
   <!-- Create a Ticket -->
-  <section class="align-items-center" id="create">
+<section class="align-items-center" id="create">
   <form class="ticket-form" id="create-ticket">
     <div class="container">
       <div class="row justify-content-center create-ticket-container">
-        <div class="card col-md-6">
+        <div class="card col-lg-6">
           <div class="card-body pt-4">
             <header class="section-header">
               <p class="text-center">Submit a Ticket</p>
@@ -77,7 +77,7 @@
       </div>
     </div>
   </form>
-  </section>
+</section>
 
 
   <!-- Ticket History Modal -->

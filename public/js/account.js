@@ -84,8 +84,8 @@ async function setPaymentHistory() {
     
     // -------------------------------- Uploaded Payments
     var uploaded_table = $('#uploaded-payment-tbl').DataTable({
-        pageLength: 5,
-        lengthMenu: [5, 10, 20],
+        pageLength: 3,
+        lengthChange : false,
         "searching": true,
         "autoWidth": false
     });
