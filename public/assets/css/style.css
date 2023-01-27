@@ -76,12 +76,6 @@ h6 {
   transition: all 0.3s;
 }
 
-@media (max-width: 1199px) {
-  #main {
-    padding: 20px;
-  }
-}
-
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
@@ -142,7 +136,7 @@ h6 {
   align-items: center;
 }
 
-.nav-profile img{
+.nav-profile img {
   max-height: 36px;
 }
 
@@ -154,7 +148,7 @@ h6 {
 .user-icon {
   border-radius: 50%;
   width: 40px;
-  height: 40px; 
+  height: 40px;
   background: #E4F6FA;
   border: 2px #012970 groove;
 
@@ -162,6 +156,7 @@ h6 {
   font-size: 20px;
   color: #012970;
   text-align: center;
+  display: center;
 }
 
 .profile {
@@ -219,7 +214,7 @@ h6 {
   position: absolute;
   top: calc(100% + 30px);
   margin: 0;
-  padding: 5px 0;
+  /*dito ako nagbago may dinelete me here no effect naman =)*/
   z-index: 99;
   opacity: 0;
   visibility: hidden;
@@ -315,6 +310,14 @@ h6 {
   transition: 0.3s;
 }
 
+/*dito ako nagbago*/
+.navbar-mobile .dropdown-toggle {
+  padding-right: 80px;
+  position: absolute;
+  left: 85px;
+  
+  position: fixed;
+}
 .navbar-mobile a,
 .navbar-mobile a:focus {
   padding: 10px 20px;
@@ -381,7 +384,7 @@ section {
   display: block;
   /* height:100vh; */
   width: 100%;
-  box-sizing:border-box;
+  box-sizing: border-box;
 }
 
 .section-header {
@@ -423,22 +426,24 @@ section {
 }
 --------------------------------------------------------------*/
 .hero {
-	background: linear-gradient(-45deg, #C2E9FB,  #66A6FF, #C2E9FB, #D7FFFE);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
-	height: 100vh;
+  background: linear-gradient(-45deg, #C2E9FB, #66A6FF, #C2E9FB, #D7FFFE);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
 }
 
 @keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .hero h1 {
@@ -774,9 +779,37 @@ section {
 /*--------------------------------------------------------------
 # Ticket Page
 --------------------------------------------------------------*/
+
+.tkt-tbl {/*dito ako nagbago*/
+  background-color: #C2E9FB;
+}
+.tkt-card {
+  margin-top: 20px;
+  background-color: #FFFFFF;
+}
+
 .tkt-tbl {
   min-height: 550px;
 }
+
+.tkt-tbl td,
+th {/*dito ako nagbago*/
+  font-weight:600;
+}
+
+.tkt-tbl .tbl-head {/*dito ako nagbago*/
+  background-color: #66A6FF;
+  
+}
+
+.tkt-tbl tr:nth-child(even) {/*dito ako nagbago*/
+  background-color: #C2E9FB;
+}
+
+.tkt-tbl tbody tr:hover{/*dito ako nagbago*/
+  background: #f5f5f5;
+   
+  }
 
 /*--------------------------------------------------------------
 # DataTable
@@ -789,7 +822,7 @@ section {
   table caption {
     font-size: 1.3em;
   }
-  
+
   table thead {
     border: none;
     clip: rect(0 0 0 0);
@@ -800,20 +833,20 @@ section {
     position: absolute;
     width: 1px;
   }
-  
+
   table tr {
     border-bottom: 3px solid #ddd;
     display: block;
     margin-bottom: .625em;
   }
-  
+
   table td {
     border-bottom: 1px solid #ddd;
     display: block;
     font-size: .8em;
     text-align: right;
   }
-  
+
   table td::before {
     /*
     * aria-label has no advantage, it won't be read inside a table
@@ -824,7 +857,7 @@ section {
     font-weight: bold;
     text-transform: uppercase;
   }
-  
+
   table td:last-child {
     border-bottom: 0;
   }

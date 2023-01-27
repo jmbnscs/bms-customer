@@ -1,8 +1,9 @@
-<?php include '../models/header.html'; include '../../app/includes/upload_payment.php'?>
+<?php include '../models/header.html'; 
+//include '../../app/includes/upload_payment.php'?>
 
 <!-- Customer Account Section -->
 <main id="main" class=" Account"> <!-- NOTE: overflow-scroll class for the datatables -->
-  <section>
+  <section class="tkt-tbl"> <!--dito ako nagbago -->
     <div class="container" data-aos="fade-up">
       <div class="row">
         <div class="adjust-top col-xl-12">
@@ -44,16 +45,16 @@
                   <div class="card-body">
                     <div>
                       <h5 class="card-title">Billing History</h5>
-                      <table class="table table-borderless" id="customer-invoice-tbl">
+                      <table class="table table-borderless pt-3" id="customer-invoice-tbl">
                         <thead>
-                          <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Billing ID</th>
-                            <th scope="col">Disconnection Date</th>
-                            <th scope="col">Total Bill</th>
-                            <th scope="col">Running Balance</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">View</th>
+                          <tr> <!--dito ako nagbago -->
+                            <th class="tbl-head" scope="col">#</th>
+                            <th class="tbl-head" scope="col">Billing ID</th>
+                            <th class="tbl-head" scope="col">Disconnection Date</th>
+                            <th class="tbl-head" scope="col">Total Bill</th>
+                            <th class="tbl-head" scope="col">Running Balance</th>
+                            <th class="tbl-head" scope="col">Status</th>
+                            <th class="tbl-head" scope="col">View</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -92,16 +93,16 @@
                           <div class="col-sm-9"><h5 class="card-title">Payment History</h5></div>
                           <div class="col-sm-3 text-center pt-2"><a href="#"><button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#upload-payment-modal">Upload Payment</button></a></div>
                         </div>
-                        <table class="table table-borderless" id="customer-payment-tbl">
+                        <table class="table table-borderless pt-3" id="customer-payment-tbl">
                           <thead>
-                            <tr>
-                              <th scope="col">#</th>
-                              <th scope="col">Reference ID</th>
-                              <th scope="col">Amount Paid</th>
-                              <th scope="col">Payment Date</th>
-                              <th scope="col">Invoice ID</th>
-                              <th scope="col">Status</th>
-                              <th scope="col">View</th>
+                            <tr><!--dito ako nagbago -->
+                              <th class="tbl-head" scope="col">#</th>
+                              <th class="tbl-head" scope="col">Reference ID</th>
+                              <th class="tbl-head" scope="col">Amount Paid</th>
+                              <th class="tbl-head" scope="col">Payment Date</th>
+                              <th class="tbl-head" scope="col">Invoice ID</th>
+                              <th class="tbl-head" scope="col">Status</th>
+                              <th class="tbl-head" scope="col">View</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -124,14 +125,14 @@
                           </select>
                         </div>
 
-                        <table class="table table-borderless" id="uploaded-payment-tbl">
+                        <table class="table table-borderless pt-3" id="uploaded-payment-tbl">
                           <thead>
-                            <tr>
-                              <th scope="col">#</th>
-                              <th scope="col">Account ID</th>
-                              <th scope="col">Date Uploaded</th>
-                              <th scope="col">Status</th>
-                              <th scope="col">Actions</th>
+                            <tr><!--dito ako nagbago -->
+                              <th class="tbl-head" scope="col">#</th>
+                              <th class="tbl-head" scope="col">Account ID</th>
+                              <th class="tbl-head" scope="col">Date Uploaded</th>
+                              <th class="tbl-head" scope="col">Status</th>
+                              <th class="tbl-head" scope="col">Actions</th>
                             </tr>
                           </thead>
                           <tbody></tbody>
@@ -156,16 +157,16 @@
                   <div class="card-body">
                     <div>
                       <h5 class="card-title">Prorates History</h5>
-                      <table class="table table-borderless" id="customer-prorate-tbl">
+                      <table class="table table-borderless pt-3" id="customer-prorate-tbl">
                         <thead>
-                          <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Prorate ID</th>
-                            <th scope="col">Duration</th>
-                            <th scope="col">Prorate Discount</th>
-                            <th scope="col">Ticket #</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">View</th>
+                          <tr><!--dito ako nagbago -->
+                            <th class="tbl-head" scope="col">#</th>
+                            <th class="tbl-head" scope="col">Prorate ID</th>
+                            <th class="tbl-head" scope="col">Duration</th>
+                            <th class="tbl-head" scope="col">Prorate Discount</th>
+                            <th class="tbl-head" scope="col">Ticket #</th>
+                            <th class="tbl-head" scope="col">Status</th>
+                            <th class="tbl-head" scope="col">View</th>
                           </tr>
                         </thead>
                         <tbody>
