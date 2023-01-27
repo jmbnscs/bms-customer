@@ -3,11 +3,11 @@
 <!-- Customer Ticket History Section -->
 <main id="main" class="customer-page">
 
-  <section class="content-bg align-items-center tkt-container">
+  <section class="tkt-tbl content-bg align-items-center tkt-container">
     <div class="container " data-aos="fade-up">
       <div class="row">
         <div class="account-ticket col-xl-12">
-          <div class="tkt-tbl card">
+          <div class="tkt-card">
             <div class="row pt-3 p-3">
               <div class="col-lg-9"><h5 class="card-title">Ticket History</h5></div>
               <div class="col-lg-3 text-center pt-2"><a href="#create"><button class="btn btn-primary w-100">Submit a Ticket</button></a></div>
@@ -15,14 +15,14 @@
             <div class="card-body">
               <table class="table table-borderless pt-3" id="customer-ticket-tbl">
                 <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Ticket No.</th>
-                    <th scope="col">Concern</th>
-                    <th scope="col">Date Filed</th>
-                    <th scope="col">Date Resolved</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">View</th>
+                  <tr> <!--dito ako nagbago -->
+                    <th class="tbl-head" scope="col">#</th>
+                    <th class="tbl-head" scope="col">Ticket No.</th>
+                    <th class="tbl-head" scope="col">Concern</th>
+                    <th class="tbl-head" scope="col">Date Filed</th>
+                    <th class="tbl-head" scope="col">Date Resolved</th>
+                    <th class="tbl-head" scope="col">Status</th>
+                    <th class="tbl-head" scope="col">View</th>
                   </tr>
                 </thead>
                 <tbody>
