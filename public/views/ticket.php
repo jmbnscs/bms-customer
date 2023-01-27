@@ -4,10 +4,10 @@
 <main id="main" class="customer-page">
 
   <section class="tkt-tbl content-bg align-items-center tkt-container">
-    <div class="container " data-aos="fade-up">
+    <div class="container" data-aos="fade-up">
       <div class="row">
         <div class="account-ticket col-xl-12">
-          <div class="tkt-card">
+          <div class="card p-2 tkt-card">
             <div class="row pt-3 p-3">
               <div class="col-lg-9"><h5 class="card-title">Ticket History</h5></div>
               <div class="col-lg-3 text-center pt-2"><a href="#create"><button class="btn btn-primary w-100">Submit a Ticket</button></a></div>
@@ -39,8 +39,8 @@
 <section class="align-items-center" id="create">
   <form class="ticket-form" id="create-ticket">
     <div class="container">
-      <div class="row justify-content-center create-ticket-container">
-        <div class="card col-lg-6">
+      <div class="row justify-content-center create-ticket-container p-2">
+        <div class="card col-lg-6 p-3">
           <div class="card-body pt-4">
             <header class="section-header">
               <p class="text-center">Submit a Ticket</p>

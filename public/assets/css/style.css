@@ -1,10 +1,3 @@
-/**
-* Template Name: FlexStart - v1.11.1
-* Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -16,6 +9,7 @@ body {
   font-family: "Open Sans", sans-serif;
   color: #444444;
   background-color: #f9fafe;
+  height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -311,6 +305,7 @@ h6 {
   
   position: fixed;
 }
+
 .navbar-mobile a,
 .navbar-mobile a:focus {
   padding: 10px 20px;
@@ -389,7 +384,6 @@ h6 {
   background-size: cover;
 }
 
-
 section {
   /* padding: 60px 0; */
   display: block;
@@ -427,6 +421,10 @@ section {
     font-size: 28px;
     line-height: 32px;
   }
+
+  /* section {
+    min-height: 100vh;
+  } */
 }
 
 /*--------------------------------------------------------------
@@ -815,10 +813,6 @@ section {
 /*--------------------------------------------------------------
 # Ticket Page
 --------------------------------------------------------------*/
-
-.tkt-tbl {/*dito ako nagbago*/
-  background-color: #C2E9FB;
-}
 .tkt-card {
   margin-top: 20px;
   background-color: #FFFFFF;
@@ -826,6 +820,7 @@ section {
 
 .tkt-tbl {
   min-height: 550px;
+  background-color: #C2E9FB;
 }
 
 .tkt-tbl td,
@@ -844,8 +839,36 @@ th {/*dito ako nagbago*/
 
 .tkt-tbl tbody tr:hover{/*dito ako nagbago*/
   background: #f5f5f5;
-   
-  }
+}
+
+.tkt-card {
+  min-height: 540px;
+  padding: 10px;
+  padding-top: 20px;
+}
+
+.acct-tbl {
+  min-height: 460px;
+  padding: 10px;
+  padding-top: 20px;
+}
+
+.create-ticket-container label,
+.ticket-modal-container label{
+  color: #012970;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background-color: #4154f1 !important;
+  border-color: #012970;
+}
+
+.tkt-container,
+.acct-container {
+  margin: auto;
+  padding-top: 100px;
+}
 
 /*--------------------------------------------------------------
 # DataTable
