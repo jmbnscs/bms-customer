@@ -1,8 +1,9 @@
-<?php include '../models/header.html'; include '../../app/includes/upload_payment.php'?>
+<?php include '../models/header.html';?>
 
 <!-- Customer Account Section -->
-<main id="main"> <!-- NOTE: overflow-scroll class for the datatables -->
-  <section class="content-bg align-items-center acct-container">
+<main id="main">
+
+  <section class="tkt-tbl content-bg align-items-center acct-container">
     <div class="container" data-aos="fade-up">
       <div class="row">
         <div class="adjust-top col-xl-12">
@@ -37,13 +38,13 @@
                       <table class="table table-borderless" id="customer-invoice-tbl">
                         <thead>
                           <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Billing ID</th>
-                            <th scope="col">Disconnection Date</th>
-                            <th scope="col">Total Bill</th>
-                            <th scope="col">Running Balance</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">View</th>
+                            <th class="tbl-head" scope="col">#</th>
+                            <th class="tbl-head" scope="col">Billing ID</th>
+                            <th class="tbl-head" scope="col">Disconnection Date</th>
+                            <th class="tbl-head" scope="col">Total Bill</th>
+                            <th class="tbl-head" scope="col">Running Balance</th>
+                            <th class="tbl-head" scope="col">Status</th>
+                            <th class="tbl-head" scope="col">View</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -53,189 +54,16 @@
                   </div>
                 </div>
               </div>
-              </form>
-              <!--End Customer Invoice History-->
+            </form>
+            <!--End Customer Invoice History-->
 
-              <!--Customer Payment History-->
-              <div class="tab-content">
-                <div class="tab-pane fade customer-payment" id="customer-payment">
-                  <div class="row acct-tbl">
-                    <div class="col-lg-12">
+            <!--Customer Payment History-->
+            <div class="tab-content">
+              <div class="tab-pane fade customer-payment" id="customer-payment">
+                <div class="row acct-tbl">
+                  <div class="col-lg-12">
 
-                      
-
-                      <ul class="nav nav-tabs d-flex pt-1" role="tablist">
-                        <li class="nav-item flex-fill" role="presentation">
-                          <button class="nav-link w-100 active" id="tagged-tab" data-bs-toggle="tab" data-bs-target="#tagged-payments" type="button" role="tab" aria-controls="tagged" aria-selected="true">Tagged</button>
-                        </li>
-                        <li class="nav-item flex-fill" role="presentation">
-                          <button class="nav-link w-100" id="uploaded-tab" data-bs-toggle="tab" data-bs-target="#uploaded-payments" type="button" role="tab" aria-controls="uploaded" aria-selected="false">Uploaded Payments</button>
-                        </li>
-                      </ul>
-
-                      <div class="tab-content pt-2">
-                        <!-- Tagged Tab -->
-                        <div class="tab-pane fade show active" id="tagged-payments" role="tabpanel" aria-labelledby="tagged-tab">
-                          
-                          <table class="table table-borderless" id="customer-payment-tbl">
-                            <thead>
-                              <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Reference ID</th>
-                                <th scope="col">Amount Paid</th>
-                                <th scope="col">Payment Date</th>
-                                <th scope="col">Invoice ID</th>
-                                <th scope="col">Status</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                          </table>
-                        </div>
-                        <!-- End Tagged Tab -->
-
-                        <!-- Uploaded Payment Records -->
-                        <div class="tab-pane fade" id="uploaded-payments" role="tabpanel" aria-labelledby="uploaded-tab">
-
-                          <div>
-                            <select id="uploaded-payment-status-filter" class="form-select table-filter" style="display: inline; width: 200px; margin-left: 20px;">
-                              <option value="">Show All: Status</option>
-                            </select>
-                          </div>
-
-                          <table class="table table-borderless" id="uploaded-payment-tbl">
-                            <thead>
-                              <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Account ID</th>
-                                <th scope="col">Date Uploaded</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Actions</th>
-                              </tr>
-                            </thead>
-                            <tbody></tbody>
-                          </table>
-                        </div>
-                        <!-- End Uploaded Payment Records -->
-                      </div>
-
-                      <div class="row justify-content-center">
-                        <!-- <div class="col-lg-8"></div> -->
-                        <div class="col-lg-3 text-center pt-2">
-                          <a href="#"><button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#upload-payment-modal">Upload Payment</button></a>
-                        </div>
-                        <div class="col-lg-3 text-center pt-2">
-                          <a href="#"><button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#view-qr-modal">View GCash QR</button></a>
-                        </div>
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- End Customer Payment History -->
-
-              <!--Customer Prorate History-->
-              <div class="tab-content">
-                <div class="tab-pane fade customer-prorate" id="customer-prorate">
-                  <div class="row acct-tbl">
-                    <div class="col-lg-12">
-                          <div>
-                            <table class="table table-borderless" id="customer-prorate-tbl">
-                              <thead>
-                                <tr>
-                                  <th scope="col">#</th>
-                                  <th scope="col">Invoice ID</th>
-                                  <th scope="col">Duration</th>
-                                  <th scope="col">Prorate Discount</th>
-                                  <th scope="col">Ticket #</th>
-                                  <th scope="col">Status</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                              </tbody>
-                            </table>
-                          </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- End Customer Prorate History -->
-
-          </div><!-- End Card -->
-
-        <!-- Navigation Tabs -->
-        <!-- <div class="card"> -->
-          <!-- <div class="card-body pt-3 pb-0"> -->
-            <!-- Bordered Tabs-->
-            <!-- <ul class="nav nav-tabs nav-tabs-bordered">
-              <li class="nav-item flex-fill">
-                <button class="nav-link active w-100" data-bs-toggle="tab" data-bs-target="#customer-invoice" id="customer-invoice-tab">
-                  <h4>Billing Statements</h4>
-                </button>
-              </li>
-              
-              <li class="nav-item flex-fill">
-                <button class="nav-link w-100" data-bs-toggle="tab" data-bs-target="#customer-payment" id="customer-payment-tab">
-                  <h4>Payment</h4>
-                </button>
-              </li>
-
-              <li class="nav-item flex-fill">
-                <button class="nav-link w-100" data-bs-toggle="tab" data-bs-target="#customer-prorate" id="customer-prorate-tab">
-                  <h4>Prorate</h4>
-                </button>
-              </li>
-
-            </ul> -->
-            <!--End of Bordered Tabs-->
-          <!-- </div> -->
-        <!-- </div> -->
-
-        <!-- Customer Invoice History-->
-        <!-- <form action="../../app/includes/view_invoice.php" method="post" target="_blank">
-        <div class="tab-content">
-          <div class="tab-pane fade show active customer-invoice" id="customer-invoice">
-            <div class="row">
-              <div class="col-sm-12">
-                <div class="card overflow-auto acct-tbl">
-                  <div class="card-body">
-                    <div>
-                      <h5 class="card-title">Billing History</h5>
-                      <table class="table table-borderless" id="customer-invoice-tbl">
-                        <thead>
-                          <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Billing ID</th>
-                            <th scope="col">Disconnection Date</th>
-                            <th scope="col">Total Bill</th>
-                            <th scope="col">Running Balance</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">View</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        </form> -->
-        <!--End Customer Invoice History-->
-
-        <!--Customer Payment History-->
-        <!-- <div class="tab-content">
-          <div class="tab-pane fade customer-payment" id="customer-payment">
-            <div class="row">
-              <div class="col-sm-12">
-                <div class="card p-3 acct-tbl">
-                  <div class="card-body p-2">
-
-                    <ul class="nav nav-tabs d-flex" role="tablist">
+                    <ul class="nav nav-tabs d-flex pt-1" role="tablist">
                       <li class="nav-item flex-fill" role="presentation">
                         <button class="nav-link w-100 active" id="tagged-tab" data-bs-toggle="tab" data-bs-target="#tagged-payments" type="button" role="tab" aria-controls="tagged" aria-selected="true">Tagged</button>
                       </li>
@@ -244,39 +72,29 @@
                       </li>
                     </ul>
 
-                    <div class="tab-content">
+                    <div class="tab-content pt-2">
+                      <!-- Tagged Tab -->
                       <div class="tab-pane fade show active" id="tagged-payments" role="tabpanel" aria-labelledby="tagged-tab">
-                        <div class="row pt-3 p-3">
-                          <div class="col-sm-6"><h5 class="card-title">Payment History</h5></div>
-                          <div class="col-sm-3 text-center pt-2">
-                            <a href="#"><button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#upload-payment-modal">Upload Payment</button></a>
-                          </div>
-                          <div class="col-sm-3 text-center pt-2">
-                            <a href="#"><button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#view-qr-modal">View GCash QR</button></a>
-                          </div>
-                        </div>
+                        
                         <table class="table table-borderless" id="customer-payment-tbl">
                           <thead>
                             <tr>
-                              <th scope="col">#</th>
-                              <th scope="col">Reference ID</th>
-                              <th scope="col">Amount Paid</th>
-                              <th scope="col">Payment Date</th>
-                              <th scope="col">Invoice ID</th>
-                              <th scope="col">Status</th>
+                              <th class="tbl-head" scope="col">#</th>
+                              <th class="tbl-head" scope="col">Reference ID</th>
+                              <th class="tbl-head" scope="col">Amount Paid</th>
+                              <th class="tbl-head" scope="col">Payment Date</th>
+                              <th class="tbl-head" scope="col">Invoice ID</th>
+                              <th class="tbl-head" scope="col">Status</th>
                             </tr>
                           </thead>
                           <tbody>
                           </tbody>
                         </table>
                       </div>
+                      <!-- End Tagged Tab -->
 
+                      <!-- Uploaded Payment Records -->
                       <div class="tab-pane fade" id="uploaded-payments" role="tabpanel" aria-labelledby="uploaded-tab">
-                        <div class="row">
-                          <div class="col-md-9">
-                            <h5 class="card-title">Uploaded Payment Records</h5>
-                          </div>
-                        </div>
 
                         <div>
                           <select id="uploaded-payment-status-filter" class="form-select table-filter" style="display: inline; width: 200px; margin-left: 20px;">
@@ -287,15 +105,26 @@
                         <table class="table table-borderless" id="uploaded-payment-tbl">
                           <thead>
                             <tr>
-                              <th scope="col">#</th>
-                              <th scope="col">Account ID</th>
-                              <th scope="col">Date Uploaded</th>
-                              <th scope="col">Status</th>
-                              <th scope="col">Actions</th>
+                              <th class="tbl-head" scope="col">#</th>
+                              <th class="tbl-head" scope="col">Account ID</th>
+                              <th class="tbl-head" scope="col">Date Uploaded</th>
+                              <th class="tbl-head" scope="col">Status</th>
+                              <th class="tbl-head" scope="col">Actions</th>
                             </tr>
                           </thead>
                           <tbody></tbody>
                         </table>
+                      </div>
+                      <!-- End Uploaded Payment Records -->
+                    </div>
+
+                    <div class="row justify-content-center">
+                      <!-- <div class="col-lg-8"></div> -->
+                      <div class="col-lg-3 text-center pt-2">
+                        <a href="#"><button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#upload-payment-modal">Upload Payment</button></a>
+                      </div>
+                      <div class="col-lg-3 text-center pt-2">
+                        <a href="#"><button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#view-qr-modal">View GCash QR</button></a>
                       </div>
                     </div>
 
@@ -303,41 +132,36 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div> -->
-        <!-- End Customer Payment History -->
-        
-        <!--Customer Prorate History-->
-        <!-- <div class="tab-content">
-          <div class="tab-pane fade customer-prorate" id="customer-prorate">
-            <div class="row">
-              <div class="col-sm-12">
-                <div class="card overflow-auto acct-tbl">
-                  <div class="card-body">
-                    <div>
-                      <h5 class="card-title">Prorates History <i class="bi bi-info-circle ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Prorates are your discounts given by GSTech for unexpected network interruptions."></i></h5>
-                      <table class="table table-borderless" id="customer-prorate-tbl">
-                        <thead>
-                          <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Invoice ID</th>
-                            <th scope="col">Duration</th>
-                            <th scope="col">Prorate Discount</th>
-                            <th scope="col">Ticket #</th>
-                            <th scope="col">Status</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                      </table>
-                    </div>
+            <!-- End Customer Payment History -->
+
+            <!--Customer Prorate History-->
+            <div class="tab-content">
+              <div class="tab-pane fade customer-prorate" id="customer-prorate">
+                <div class="row acct-tbl">
+                  <div class="col-lg-12">
+                        <div>
+                          <table class="table table-borderless" id="customer-prorate-tbl">
+                            <thead>
+                              <tr>
+                                <th class="tbl-head" scope="col">#</th>
+                                <th class="tbl-head" scope="col">Invoice ID</th>
+                                <th class="tbl-head" scope="col">Duration</th>
+                                <th class="tbl-head" scope="col">Prorate Discount</th>
+                                <th class="tbl-head" scope="col">Ticket #</th>
+                                <th class="tbl-head" scope="col">Status</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                          </table>
+                        </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div> -->
-        <!-- End Customer Prorate History -->
+            <!-- End Customer Prorate History -->
+
+          </div><!-- End Card -->
 
         </div>
       </div>
