@@ -7,7 +7,7 @@ else
 $url.= $_SERVER['HTTP_HOST'];   
 
 // $url.= $_SERVER['REQUEST_URI'];  
-$url.= "/gstech_api/api/";  
+$url.= "/betaapi/api/";  
     
 // Declare Main DIR
 if (!defined("DIR_API")) define("DIR_API", $url);

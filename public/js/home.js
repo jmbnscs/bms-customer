@@ -1,7 +1,7 @@
 // $(document).ready(function () {
 //     isDefault();
 // });
-const DIR_APP_HOME = location.protocol + '//' + location.host + '/bms-customer/app/includes/';
+const DIR_APP_HOME = location.protocol + '//' + location.host + '/betacui/app/includes/';
 
 $('form').on('submit', function (e) {
     e.preventDefault();
